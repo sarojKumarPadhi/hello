@@ -1,7 +1,6 @@
 import 'package:dekhlo/utils/components/buttons.dart';
 import 'package:dekhlo/utils/routes/routes_names.dart';
-import 'package:dekhlo/utils/size/global_size.dart/global_size.dart';
-import 'package:dekhlo/views/phone.dart';
+import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

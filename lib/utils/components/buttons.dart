@@ -1,4 +1,4 @@
-import 'package:dekhlo/utils/size/global_size.dart/global_size.dart';
+import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:flutter/material.dart';
 
 class LongButton {
@@ -19,7 +19,7 @@ class LongButton {
           style: ElevatedButton.styleFrom(
             side: const BorderSide(
               color: Color(0xffFC8019),
-              width: 1,
+              width: 0,
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),

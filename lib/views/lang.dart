@@ -1,6 +1,9 @@
-import 'package:dekhlo/utils/components/buttons.dart';
-import 'package:dekhlo/utils/size/global_size.dart/global_size.dart';
+import 'package:dekhlo/controllers/languageController.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart'; // Import GetX package
+import 'package:dekhlo/utils/components/buttons.dart';
+import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../models/lagModel.dart';
@@ -12,18 +15,8 @@ class Lag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    List<Language> laguageTile = [
-      Language(text: "Bangla", color: const Color(0xff46E3E3)),
-      Language(text: "English", color: const Color(0xffF2C94C)),
-      Language(text: "Gujarati", color: const Color(0xffB73451)),
-      Language(text: "Hindi", color: const Color(0xff7B61FF)),
-      Language(text: "Kannada", color: const Color(0xffFC8019)),
-      Language(text: "Marathi", color: const Color(0xff008B00)),
-      Language(text: "Malayalam", color: const Color(0xff7B61FF)),
-      Language(text: "Punjabi", color: const Color(0xff2196F3)),
-      Language(text: "Tamil", color: const Color(0xffB73451)),
-      Language(text: "Telugu", color: const Color(0xff263238)),
-    ];
+    // Wrap the list with RxList and .obs to make it observable
+    final LanguageController languageController = Get.put(LanguageController());
 
     return Scaffold(
       body: SafeArea(
@@ -83,37 +76,83 @@ class Lag extends StatelessWidget {
                     childAspectRatio: 3.8 / 2,
                   ),
                   itemBuilder: (context, index) {
-                    return Container(
-                      height: size.height * 0.1,
-                      width: size.width * 0.2,
-                      decoration: BoxDecoration(
-                        color: laguageTile[index].color,
-                        borderRadius:
-                            BorderRadius.circular(8), // Set border radius here
-                      ),
-                      margin: const EdgeInsets.all(8.0),
-                      child: Center(
-                        child: Text(
-                          laguageTile[index].text,
-                          style: TextStyles.openSans(fontSize: 18),
-                        ),
-                      ),
+                    return InkWell(
+                      onTap: () {
+                        // Check current opacity
+                        double currentOpacity =
+                            languageController.laguageTile[index].color.opacity;
+
+                        // Toggle opacity
+                        if ((currentOpacity - 0.9).abs() < 0.1) {
+                          languageController.laguageTile[index].color =
+                              languageController.laguageTile[index].color
+                                  .withOpacity(0.2);
+                        } else {
+                          languageController.laguageTile[index].color =
+                              languageController.laguageTile[index].color
+                                  .withOpacity(0.9);
+                        }
+
+                        languageController.laguageTile.refresh(); // Update UI
+                        languageController.isTileSeclected.value =
+                            !languageController.isTileSeclected.value;
+                      },
+                      child: Obx(() {
+                        return Container(
+                          height: size.height * 0.1,
+                          width: size.width * 0.2,
+                          decoration: BoxDecoration(
+                            color: languageController.laguageTile[index].color,
+                            borderRadius: BorderRadius.circular(
+                                8), // Set border radius here
+                          ),
+                          margin: const EdgeInsets.all(8.0),
+                          child: Center(
+                            child: Text(
+                              languageController.laguageTile[index].text,
+                              style: TextStyles.openSans(fontSize: 18),
+                            ),
+                          ),
+                        );
+                      }),
                     );
                   },
-                  itemCount: 10,
+                  itemCount: languageController.laguageTile.length,
                 ),
               ),
             ),
-            LongButton.longButton(
-              buttonText: "Next",
-              color: const Color(0xffFC8019),
-              textColor: Colors.white,
-              context: context,
-              onPressedCallback: () {
-                // Get.toNamed(RoutesN)
-                // to be continued
-              },
-            )
+            Obx(() {
+              if (languageController.isTileSeclected.value) {
+                return LongButton.longButton(
+                  buttonText: "Next",
+                  color: const Color(0xffFC8019),
+                  textColor: Colors.white,
+                  context: context,
+                  onPressedCallback: () {
+                    // Get.toNamed(RoutesN)
+                    // to be continued
+                  },
+                );
+              } else {
+                return LongButton.longButton(
+                  buttonText: "Next",
+                  color: const Color(0xffFC8019).withOpacity(0.6),
+                  textColor: Colors.white,
+                  context: context,
+                  onPressedCallback: () {
+                    // Get.toNamed(RoutesN)
+                    // to be continued
+                    Fluttertoast.showToast(
+                        msg: 'Select a language',
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.BOTTOM,
+                        backgroundColor: Colors.red,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  },
+                );
+              }
+            })
           ],
         ),
       ),

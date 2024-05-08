@@ -1,3 +1,4 @@
+import 'package:dekhlo/utils/Strings/strings.dart';
 import 'package:dekhlo/utils/components/buttons.dart';
 import 'package:dekhlo/utils/routes/routes_names.dart';
 import 'package:dekhlo/utils/size/global_size/global_size.dart';
@@ -32,7 +33,7 @@ class Login extends StatelessWidget {
             ),
             LongButton.longButton(
                 color: const Color(0xffFC8019),
-                buttonText: 'Login',
+                buttonText: AppStrings.logInButtonString,
                 textColor: const Color(0xffFFFFFF),
                 context: context,
                 onPressedCallback: () {
@@ -40,22 +41,22 @@ class Login extends StatelessWidget {
                 }),
             LongButton.longButton(
                 color: const Color(0xffFFFFFF),
-                buttonText: 'Signup',
+                buttonText: AppStrings.signUpButtonText,
                 textColor: const Color(0xffFC8019),
                 context: context,
                 onPressedCallback: () {
                   Get.toNamed(RouteName.phoneScreen);
                 }),
             const Spacer(),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 20),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20),
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 40),
-                    child: Text("By Continue, you are agreeing to the"),
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Text(AppStrings.arreingText1),
                   ),
-                  TermsAndPolicyText()
+                  const TermsAndPolicyText()
                 ],
               ),
             )
@@ -75,18 +76,19 @@ class TermsAndPolicyText extends StatelessWidget {
     return Column(
       children: [
         RichText(
-          text: const TextSpan(
+          text: TextSpan(
             children: [
               TextSpan(
-                text: 'Terms of Services',
-                style: TextStyle(
+                text: AppStrings.terms,
+                style: const TextStyle(
                   color: Color(0xffFC8019),
                 ),
               ),
-              TextSpan(text: ' & ', style: TextStyle(color: Colors.black)),
+              const TextSpan(
+                  text: ' & ', style: TextStyle(color: Colors.black)),
               TextSpan(
-                text: 'Privacy Policy',
-                style: TextStyle(color: Color(0xffFC8019)),
+                text: AppStrings.privacyPoilcy,
+                style: const TextStyle(color: Color(0xffFC8019)),
               ),
             ],
           ),

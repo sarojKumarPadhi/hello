@@ -50,7 +50,6 @@ class Phone extends StatelessWidget {
                     style: TextStyle(color: Colors.grey),
                   ),
                   border: OutlineInputBorder(),
-                  hintText: 'Enter a search term',
                 ),
               ),
             ),

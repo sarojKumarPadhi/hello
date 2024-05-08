@@ -1,4 +1,7 @@
+import 'package:dekhlo/utils/routes/routes_names.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CoustumRichText extends StatelessWidget {
   final String text1;
@@ -22,6 +25,10 @@ class CoustumRichText extends StatelessWidget {
               TextSpan(
                 text: text2,
                 style: const TextStyle(color: Color(0xffFC8019)),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    Get.toNamed(RouteName.loginOptional);
+                  },
               ),
             ],
           ),

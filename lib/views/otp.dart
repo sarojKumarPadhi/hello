@@ -31,7 +31,9 @@ class OTP extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 1,
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.back();
+            },
             icon: const Icon(
               Icons.arrow_back,
               color: Colors.black,

@@ -1,3 +1,4 @@
+import 'package:dekhlo/controllers/authController.dart';
 import 'package:dekhlo/utils/Strings/strings.dart';
 import 'package:dekhlo/utils/components/buttons.dart';
 import 'package:dekhlo/utils/routes/routes_names.dart';
@@ -10,6 +11,7 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AuthController authController = Get.put(AuthController());
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -37,6 +39,11 @@ class Login extends StatelessWidget {
                 textColor: const Color(0xffFFFFFF),
                 context: context,
                 onPressedCallback: () {
+                  authController.isLogin.value = true;
+                  authController.isOtpEmpty.value = true;
+                  authController.isPhoneNumberEmpty.value = true;
+                  authController.otpController.clear();
+                  authController.phoneAuthController.clear();
                   Get.toNamed(RouteName.phoneScreen);
                 }),
             LongButton.longButton(
@@ -45,6 +52,12 @@ class Login extends StatelessWidget {
                 textColor: const Color(0xffFC8019),
                 context: context,
                 onPressedCallback: () {
+                  authController.isLogin.value = false;
+                  authController.isOtpEmpty.value = true;
+                  authController.isPhoneNumberEmpty.value = true;
+                  authController.otpController.clear();
+                  authController.phoneAuthController.clear();
+
                   Get.toNamed(RouteName.phoneScreen);
                 }),
             const Spacer(),

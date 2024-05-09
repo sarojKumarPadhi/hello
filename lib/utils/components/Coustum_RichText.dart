@@ -1,13 +1,17 @@
-import 'package:dekhlo/utils/routes/routes_names.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 
 class CoustumRichText extends StatelessWidget {
   final String text1;
   final String text2;
+  final Callback? callBack;
 
-  const CoustumRichText({super.key, required this.text1, required this.text2});
+  const CoustumRichText(
+      {super.key,
+      required this.text1,
+      required this.text2,
+      required this.callBack});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +31,7 @@ class CoustumRichText extends StatelessWidget {
                 style: const TextStyle(color: Color(0xffFC8019)),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
-                    Get.toNamed(RouteName.loginOptional);
+                    if (callBack != null) callBack!();
                   },
               ),
             ],

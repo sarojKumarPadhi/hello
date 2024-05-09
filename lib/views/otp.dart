@@ -1,3 +1,7 @@
+import 'dart:ffi';
+
+import 'package:dekhlo/controllers/authController.dart';
+import 'package:dekhlo/utils/Strings/strings.dart';
 import 'package:dekhlo/utils/components/Coustum_RichText.dart';
 import 'package:dekhlo/utils/components/buttons.dart';
 import 'package:dekhlo/utils/routes/routes_names.dart';
@@ -14,6 +18,7 @@ class OTP extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = Get.put(AuthController());
     final defaultPinTheme = PinTheme(
       width: GlobalSizes.getDeviceWidth(context) * 0.4,
       height: GlobalSizes.getDeviceHeight(context) * 0.06,
@@ -71,8 +76,14 @@ class OTP extends StatelessWidget {
             padding: EdgeInsets.symmetric(
                 horizontal: GlobalSizes.getDeviceWidth(context) * 0.05),
             child: Pinput(
-              // controller: authController.otpController,
-
+              controller: authController.otpController,
+              onChanged: (val) {
+                if (val.length == 6) {
+                  authController.isOtpEmpty.value = false;
+                } else {
+                  authController.isOtpEmpty.value = true;
+                }
+              },
               length: 6,
               defaultPinTheme: defaultPinTheme,
             ),
@@ -84,21 +95,35 @@ class OTP extends StatelessWidget {
             child:
                 const Align(alignment: Alignment.centerLeft, child: OTPText()),
           ),
-          LongButton.longButton(
-            color: const Color(0xffFC8019),
-            buttonText: 'Login',
-            textColor: Colors.white,
-            context: context,
-            onPressedCallback: () {
-              Get.toNamed(RouteName.langScreen);
-            },
-          ),
+          Obx(() {
+            return LongButton.longButton(
+              color: authController.isOtpEmpty.value
+                  ? const Color(0xffFC8019).withOpacity(0.2)
+                  : const Color(0xffFC8019),
+              buttonText: 'Login',
+              textColor: Colors.white,
+              context: context,
+              onPressedCallback: () {
+                authController.otpController.text.length == 6
+                    ? Get.toNamed(RouteName.langScreen)
+                    : () {};
+              },
+            );
+          }),
           const Spacer(),
-          const Padding(
-              padding: EdgeInsets.only(bottom: 35),
+          Padding(
+              padding: const EdgeInsets.only(bottom: 35),
               child: CoustumRichText(
-                text1: 'Don’t have an account? ',
-                text2: 'Signup',
+                text1: authController.isLogin.value == true
+                    ? 'Don’t have an account? '
+                    : 'Already have an account? ',
+                text2: authController.isLogin.value == true
+                    ? AppStrings.signUpButtonText
+                    : AppStrings.logInButtonString,
+                callBack: () {
+                  authController.isLogin.value = !authController.isLogin.value;
+                  Get.toNamed(RouteName.phoneScreen);
+                },
               ))
         ],
       ),

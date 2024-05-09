@@ -44,7 +44,7 @@ class Login extends StatelessWidget {
                   authController.isPhoneNumberEmpty.value = true;
                   authController.otpController.clear();
                   authController.phoneAuthController.clear();
-                  Get.toNamed(RouteName.phoneScreen);
+                  Get.toNamed(RouteName.logInphoneScreen);
                 }),
             LongButton.longButton(
                 color: const Color(0xffFFFFFF),
@@ -58,7 +58,7 @@ class Login extends StatelessWidget {
                   authController.otpController.clear();
                   authController.phoneAuthController.clear();
 
-                  Get.toNamed(RouteName.phoneScreen);
+                  Get.toNamed(RouteName.signPhoneScreen);
                 }),
             const Spacer(),
             Padding(

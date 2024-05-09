@@ -114,15 +114,10 @@ class OTP extends StatelessWidget {
           Padding(
               padding: const EdgeInsets.only(bottom: 35),
               child: CoustumRichText(
-                text1: authController.isLogin.value == true
-                    ? 'Don’t have an account? '
-                    : 'Already have an account? ',
-                text2: authController.isLogin.value == true
-                    ? AppStrings.signUpButtonText
-                    : AppStrings.logInButtonString,
+                text1: 'Already have an account? ',
+                text2: AppStrings.logInButtonString,
                 callBack: () {
-                  authController.isLogin.value = !authController.isLogin.value;
-                  Get.toNamed(RouteName.phoneScreen);
+                  Get.toNamed(RouteName.logInphoneScreen);
                 },
               ))
         ],

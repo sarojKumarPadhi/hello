@@ -7,10 +7,10 @@ import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../utils/components/Coustum_RichText.dart';
+import '../../utils/components/Coustum_RichText.dart';
 
-class Phone extends StatelessWidget {
-  const Phone({super.key});
+class LogInPhone extends StatelessWidget {
+  const LogInPhone({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +22,11 @@ class Phone extends StatelessWidget {
           children: [
             Padding(
                 padding: const EdgeInsets.only(top: 60),
-                child: Obx(() {
-                  return Center(
-                      child: authController.isLogin.value
-                          ? Text(
-                              "Welcome back!",
-                              style: TextStyles.openSans(),
-                            )
-                          : Text(
-                              "Signup to get started !",
-                              style: TextStyles.openSans(),
-                            ));
-                })),
+                child: Center(
+                    child: Text(
+                  "Welcome back!",
+                  style: TextStyles.openSans(),
+                ))),
             SizedBox(height: GlobalSizes.getDeviceHeight(context) * 0.01),
             Text(
               "Enter your mobile number, We will",
@@ -51,12 +44,11 @@ class Phone extends StatelessWidget {
               child: TextField(
                 keyboardType: TextInputType.number,
                 onChanged: (val) {
-                  authController.isPhoneNumberEmpty.value = false;
-                  if (val == '') {
-                    authController.isPhoneNumberEmpty.value = true;
-                  }
                   if (val.length == 10) {
                     authController.errorMessagePhoneNumber.value = '';
+                    authController.isPhoneNumberEmpty.value = false;
+                  } else {
+                    authController.isPhoneNumberEmpty.value = true;
                   }
                 },
                 controller: authController.phoneAuthController,
@@ -106,28 +98,21 @@ class Phone extends StatelessWidget {
                         : authController.phoneAuthController.text.length != 10
                             ? authController.errorMessagePhoneNumber.value =
                                 'The number you entered is not Registered.'
-                            : Get.toNamed(RouteName.otpScreen);
+                            : Get.toNamed(RouteName.logInotpScreen);
                   });
             }),
             const Spacer(),
-            Obx(() {
-              return Padding(
-                padding: EdgeInsets.only(
-                    bottom: GlobalSizes.getDeviceHeight(context) * 0.04),
-                child: CoustumRichText(
-                  text1: authController.isLogin.value
-                      ? 'Don’t have an account? '
-                      : 'Already have an account? ',
-                  text2: authController.isLogin.value
-                      ? AppStrings.signUpButtonText
-                      : AppStrings.logInButtonString,
-                  callBack: () {
-                    authController.isLogin.value =
-                        !authController.isLogin.value;
-                  },
-                ),
-              );
-            })
+            Padding(
+              padding: EdgeInsets.only(
+                  bottom: GlobalSizes.getDeviceHeight(context) * 0.04),
+              child: CoustumRichText(
+                text1: 'Don’t have an account? ',
+                text2: AppStrings.signUpButtonText,
+                callBack: () {
+                  Get.toNamed(RouteName.signPhoneScreen);
+                },
+              ),
+            )
           ],
         ),
       ),

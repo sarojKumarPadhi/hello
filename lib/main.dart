@@ -3,6 +3,8 @@ import 'package:dekhlo/views/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'views/home_screen_buyer.dart/home_screenBuyer.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
@@ -27,7 +29,8 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: const Login(),
+      // home: const Login(),
+      home: const HomeBuyer(),
       getPages: AppPages.pages,
     );
   }

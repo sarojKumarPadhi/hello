@@ -6,4 +6,5 @@ class RouteName {
   static const String logInphoneScreen = '/loginphone';
   static const String logInotpScreen = '/loginotp';
   static const String langScreen = '/lang';
+  static const String homeBuyerScreen = '/homeBuyerScreen';
 }

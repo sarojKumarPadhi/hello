@@ -1,4 +1,5 @@
 import 'package:dekhlo/utils/routes/routes_names.dart';
+import 'package:dekhlo/views/home_screen_buyer.dart/home_screenBuyer.dart';
 import 'package:dekhlo/views/lang.dart';
 import 'package:dekhlo/views/login.dart';
 import 'package:dekhlo/views/singUpPages/Signup_otp.dart';
@@ -16,5 +17,6 @@ class AppPages {
     GetPage(name: RouteName.langScreen, page: () => const Lag()),
     GetPage(name: RouteName.logInphoneScreen, page: () => const LogInPhone()),
     GetPage(name: RouteName.logInotpScreen, page: () => const LogINOTP()),
+    GetPage(name: RouteName.homeBuyerScreen, page: () => const HomeBuyer()),
   ];
 }

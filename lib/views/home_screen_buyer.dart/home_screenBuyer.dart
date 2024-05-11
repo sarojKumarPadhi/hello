@@ -17,7 +17,7 @@ class HomeBuyer extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: GlobalSizes.getDeviceHeight(context) * 0.01,
+                height: GlobalSizes.getDeviceHeight(context) * 0.012,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
@@ -29,20 +29,28 @@ class HomeBuyer extends StatelessWidget {
                       child: SlimSearchBar(),
                     ),
                     SizedBox(
-                      width: GlobalSizes.getDeviceHeight(context) * 0.01,
+                      width: GlobalSizes.getDeviceHeight(context) * 0.02,
                     ),
-                    Image.asset("assest/bell.png"),
+                    SizedBox(
+                      height: GlobalSizes.getDeviceHeight(context) * 0.03,
+                      child: Image.asset("assest/bell.png",fit: BoxFit.fitHeight,)),
                     SizedBox(
                       width: GlobalSizes.getDeviceHeight(context) * 0.01,
                     ),
-                    Image.asset(
-                      "assest/user.png",
+                    SizedBox(
+                      height: GlobalSizes.getDeviceHeight(context) * 0.03,
+                      child: Image.asset(
+                        "assest/user.png",fit: BoxFit.fitHeight,
+                      ),
                     ),
                     SizedBox(
                       width: GlobalSizes.getDeviceHeight(context) * 0.01,
                     ),
-                    Image.asset(
-                      "assest/sellerShop.png",
+                    SizedBox(
+                      height: GlobalSizes.getDeviceHeight(context) * 0.038,
+                      child: Image.asset(
+                        "assest/sellerShop.png",fit: BoxFit.fitHeight,
+                      ),
                     ),
                     SizedBox(
                       width: GlobalSizes.getDeviceHeight(context) * 0.001,
@@ -121,8 +129,15 @@ class HomeBuyer extends StatelessWidget {
                           flex: 1,
                           child: Row(
                             children: [
-                              Image.asset("assest/buying.png"),
-                              Image.asset("assest/post.png")
+                              SizedBox(
+                                width: GlobalSizes.getDeviceWidth(context) * 0.5,
+                                child: SizedBox(
+                                  width: 110,
+                                  child: Image.asset("assest/buying.png",fit: BoxFit.fill,)),
+                              ),
+                              SizedBox(
+                                width    : MediaQuery.of(context).size.width * 0.5,
+                                child: Image.asset("assest/post.png"))
                             ],
                           ),
                         )

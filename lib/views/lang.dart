@@ -111,7 +111,7 @@ class Lag extends StatelessWidget {
             ),
             Obx(() {
               if (languageController.isTileSeclected.value) {
-                return LongButton.longButton(
+                return Buttons.longButton(
                   buttonText: "Next",
                   color: const Color(0xffFC8019),
                   textColor: Colors.white,
@@ -122,7 +122,7 @@ class Lag extends StatelessWidget {
                   },
                 );
               } else {
-                return LongButton.longButton(
+                return Buttons.longButton(
                   buttonText: "Next",
                   color: const Color(0xffbea77e),
                   textColor: Colors.white,

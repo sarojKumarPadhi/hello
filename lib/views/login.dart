@@ -33,7 +33,7 @@ class Login extends StatelessWidget {
             SizedBox(
               height: GlobalSizes.getDeviceWidth(context) * 0.04,
             ),
-            LongButton.longButton(
+            Buttons.longButton(
                 color: const Color(0xffFC8019),
                 buttonText: AppStrings.logInButtonString,
                 textColor: const Color(0xffFFFFFF),
@@ -46,7 +46,7 @@ class Login extends StatelessWidget {
                   authController.phoneAuthController.clear();
                   Get.toNamed(RouteName.logInphoneScreen);
                 }),
-            LongButton.longButton(
+            Buttons.longButton(
                 color: const Color(0xffFFFFFF),
                 buttonText: AppStrings.signUpButtonText,
                 textColor: const Color(0xffFC8019),

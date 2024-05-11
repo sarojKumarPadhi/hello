@@ -85,7 +85,7 @@ class LogInPhone extends StatelessWidget {
               height: GlobalSizes.getDeviceHeight(context) * 0.025,
             ),
             Obx(() {
-              return LongButton.longButton(
+              return Buttons.longButton(
                   color: authController.isPhoneNumberEmpty.value
                       ? const Color(0xffFC8019).withOpacity(0.2)
                       : const Color(0xffFC8019),

@@ -1,9 +1,11 @@
 import 'package:dekhlo/utils/size/global_size/global_size.dart';
+import 'package:dekhlo/views/home_screen_buyer.dart/tabs/inprocess_tab.dart';
+import 'package:dekhlo/views/home_screen_buyer.dart/tabs/rejected_tab.dart';
 import 'package:flutter/material.dart';
 
-import '../../utils/components/buyerScreenTiles/buyerTiles.dart';
 import '../../utils/components/coustoum_serch_bar.dart';
 import '../../utils/components/textstyle.dart';
+import 'tabs/deal_done.dart';
 
 class HomeBuyer extends StatelessWidget {
   const HomeBuyer({super.key});
@@ -32,15 +34,19 @@ class HomeBuyer extends StatelessWidget {
                       width: GlobalSizes.getDeviceHeight(context) * 0.02,
                     ),
                     SizedBox(
-                      height: GlobalSizes.getDeviceHeight(context) * 0.03,
-                      child: Image.asset("assest/bell.png",fit: BoxFit.fitHeight,)),
+                        height: GlobalSizes.getDeviceHeight(context) * 0.03,
+                        child: Image.asset(
+                          "assest/bell.png",
+                          fit: BoxFit.fitHeight,
+                        )),
                     SizedBox(
                       width: GlobalSizes.getDeviceHeight(context) * 0.01,
                     ),
                     SizedBox(
                       height: GlobalSizes.getDeviceHeight(context) * 0.03,
                       child: Image.asset(
-                        "assest/user.png",fit: BoxFit.fitHeight,
+                        "assest/user.png",
+                        fit: BoxFit.fitHeight,
                       ),
                     ),
                     SizedBox(
@@ -49,7 +55,8 @@ class HomeBuyer extends StatelessWidget {
                     SizedBox(
                       height: GlobalSizes.getDeviceHeight(context) * 0.038,
                       child: Image.asset(
-                        "assest/sellerShop.png",fit: BoxFit.fitHeight,
+                        "assest/sellerShop.png",
+                        fit: BoxFit.fitHeight,
                       ),
                     ),
                     SizedBox(
@@ -109,45 +116,13 @@ class HomeBuyer extends StatelessWidget {
                 ),
               ),
               const Divider(),
-              Expanded(
+              const Expanded(
                 child: TabBarView(
                   children: [
-                    // Contents of Tab 1
-                    Column(
-                      children: [
-                        Expanded(
-                          flex: 12,
-                          child:
-                              ListView.builder(itemBuilder: (context, index) {
-                            return const Padding(
-                              padding: EdgeInsets.all(10.0),
-                              child: SquareCard(),
-                            );
-                          }),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: GlobalSizes.getDeviceWidth(context) * 0.5,
-                                child: SizedBox(
-                                  width: 110,
-                                  child: Image.asset("assest/buying.png",fit: BoxFit.fill,)),
-                              ),
-                              SizedBox(
-                                width    : MediaQuery.of(context).size.width * 0.5,
-                                child: Image.asset("assest/post.png"))
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    // Contents of Tab 2
-                    const Center(child: Text('Tab 2 Content')),
-                    const Center(child: Text('Tab 3 Content')),
-                    // Contents of Tab 2
-                    const Center(child: Text('Tab 4 Content')),
+                    InProcessTab(), // inprocess tab
+                    Center(child: Text('Tab 4 Content')),
+                    DealDoneTab(), //Deal Done
+                    RejectedTab(), // rejected tab
                   ],
                 ),
               ),

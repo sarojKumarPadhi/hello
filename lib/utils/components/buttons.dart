@@ -38,20 +38,23 @@ class Buttons {
       ),
     );
   }
-static Padding shortButton(
-  {required Color color,
-  required BuildContext context,
-  required VoidCallback onPressedCallback,
-  required String buttonText,
-  required Color textColor}) {
+
+  static Padding shortButton(
+      {required Color color,
+      required BuildContext context,
+      required VoidCallback onPressedCallback,
+      required String buttonText,
+      required Color textColor}) {
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: GlobalSizes.getDeviceWidth(context) * 0.02,
-        vertical: GlobalSizes.getDeviceHeight(context) * 0.01,
+        vertical: GlobalSizes.getDeviceHeight(context) * 0.009,
       ),
       child: SizedBox(
-        width: GlobalSizes.getDeviceWidth(context) * 0.3, // Adjust width as needed
-        height: GlobalSizes.getDeviceHeight(context) * 0.06, // Adjust height as needed
+        width:
+            GlobalSizes.getDeviceWidth(context) * 0.3, // Adjust width as needed
+        height: GlobalSizes.getDeviceHeight(context) *
+            0.05, // Adjust height as needed
         child: ElevatedButton(
           onPressed: onPressedCallback,
           style: ElevatedButton.styleFrom(
@@ -59,8 +62,7 @@ static Padding shortButton(
               borderRadius: BorderRadius.circular(8.0),
             ),
             backgroundColor: color,
-          
-            padding: EdgeInsets.all(GlobalSizes.getDeviceWidth(context) * 0.04),
+            padding: EdgeInsets.all(GlobalSizes.getDeviceWidth(context) * 0.03),
           ),
           child: Text(
             buttonText,
@@ -74,5 +76,42 @@ static Padding shortButton(
     );
   }
 
-
+  static SizedBox veryShortButton(
+      {required Color color,
+      required BuildContext context,
+      required VoidCallback onPressedCallback,
+      required String buttonText,
+      required Color textColor}) {
+    return SizedBox(
+      width: GlobalSizes.getDeviceWidth(context) * 0.25,
+      height: GlobalSizes.getDeviceHeight(context) * 0.035,
+      child: Padding(
+        padding: EdgeInsets.only(
+          left: GlobalSizes.getDeviceWidth(context) * 0.09,
+        ),
+        child: ElevatedButton(
+          onPressed: onPressedCallback,
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            backgroundColor: color,
+            padding: EdgeInsets.fromLTRB(
+                GlobalSizes.getDeviceWidth(context) * 0.01,
+                GlobalSizes.getDeviceHeight(context) * 0.001,
+                GlobalSizes.getDeviceWidth(context) * 0.01,
+                GlobalSizes.getDeviceHeight(context) * 0.001),
+          ),
+          child: Text(
+            buttonText,
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 10, // Adjust font size as needed
+              color: textColor, // Text color
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

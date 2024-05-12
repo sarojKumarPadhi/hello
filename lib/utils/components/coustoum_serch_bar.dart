@@ -17,21 +17,33 @@ class SlimSearchBar extends StatelessWidget {
         ),
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: TextField(
-          controller: searchController,
-          decoration: InputDecoration(
-            hintText: 'Search by name, contact....',
-            hintStyle: TextStyles.openSans(fontSize: 15,fontWeight: FontWeight.w300),
-            contentPadding: EdgeInsets.only(bottom: GlobalSizes.getDeviceHeight(context) * 0.016),
-            border: InputBorder.none,
-            icon: Image(
-              height: GlobalSizes.getDeviceHeight(context) * 0.03,
-              image: const AssetImage(
-                'assest/logocircle.png',
+            controller: searchController,
+            decoration: InputDecoration(
+              hintText: 'Search by name, contact....',
+              hintStyle: TextStyles.openSans(
+                  fontSize: 15, fontWeight: FontWeight.w300),
+              contentPadding: EdgeInsets.only(
+                  bottom: GlobalSizes.getDeviceHeight(context) * 0.015),
+              border: InputBorder.none,
+              icon: Image(
+                height: GlobalSizes.getDeviceHeight(context) * 0.028,
+                image: const AssetImage(
+                  'assest/logocircle.png',
+                ),
               ),
-            ),
-            suffixIcon:  const Padding(
-                padding:  EdgeInsets.only(left: 20), child: Icon(Icons.search,size: 20 ),
-          ),
-        )));
+              suffixIcon: Padding(
+                padding: EdgeInsets.fromLTRB(
+                    GlobalSizes.getDeviceWidth(context) * 0.07,
+                    GlobalSizes.getDeviceHeight(context) * 0.007,
+                    0,
+                    GlobalSizes.getDeviceHeight(context) * 0.008),
+                child: const Icon(
+                  Icons.search,
+                  size: 19,
+                  weight: 20.5,
+                  color: Color(0xff4A4A4A),
+                ),
+              ),
+            )));
   }
 }

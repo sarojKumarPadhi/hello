@@ -1,11 +1,11 @@
 import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:flutter/material.dart';
 
-import '../delete_dialog.dart/delete_dialog.dart';
+import '../dialog_boxs/delete_dialog.dart';
 import '../textstyle.dart';
 
-class SquareCard extends StatelessWidget {
-  const SquareCard({super.key});
+class NewSquareCard extends StatelessWidget {
+  const NewSquareCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,8 @@ class SquareCard extends StatelessWidget {
               height: 10,
             ),
             Padding(
-              padding:  EdgeInsets.only(left: GlobalSizes.getDeviceHeight(context) * 0.023),
+              padding: EdgeInsets.only(
+                  left: GlobalSizes.getDeviceHeight(context) * 0.023),
               child: Text(
                 "Requirement ID #16526545",
                 style: TextStyles.openSans(
@@ -46,7 +47,8 @@ class SquareCard extends StatelessWidget {
               height: GlobalSizes.getDeviceHeight(context) * 0.003,
             ),
             Padding(
-              padding:  EdgeInsets.only(left: GlobalSizes.getDeviceHeight(context) * 0.023),
+              padding: EdgeInsets.only(
+                  left: GlobalSizes.getDeviceHeight(context) * 0.023),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -171,14 +173,12 @@ class SquareCard extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal:  GlobalSizes.getDeviceHeight(context) * 0.023),
+                  horizontal: GlobalSizes.getDeviceHeight(context) * 0.023),
               child: RichText(
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: text.length > 132
-                          ? text.substring(0, 134)
-                          : text,
+                      text: text.length > 132 ? text.substring(0, 134) : text,
                       style: TextStyles.openSans(
                         color: Colors.black,
                         fontSize: 11,
@@ -198,7 +198,9 @@ class SquareCard extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: GlobalSizes.getDeviceHeight(context) * 0.01,),
+            SizedBox(
+              height: GlobalSizes.getDeviceHeight(context) * 0.01,
+            ),
             Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: GlobalSizes.getDeviceWidth(context) * 0.05,
@@ -222,19 +224,21 @@ class SquareCard extends StatelessWidget {
                     ],
                   ),
                   InkWell(
-  onTap: (){
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return DeleteItemDialog();
-      },
-    );
-  },
-  child: SizedBox(
-    width: GlobalSizes.getDeviceWidth(context) * 0.09,
-    child: Image.asset("assest/delete-filled.png",fit: BoxFit.fitWidth,)),
-)
-
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const DeleteItemDialog();
+                        },
+                      );
+                    },
+                    child: SizedBox(
+                        width: GlobalSizes.getDeviceWidth(context) * 0.09,
+                        child: Image.asset(
+                          "assest/delete-filled.png",
+                          fit: BoxFit.fitWidth,
+                        )),
+                  )
                 ],
               ),
             )

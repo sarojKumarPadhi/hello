@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:dekhlo/utils/components/textstyle.dart';
 import 'package:dekhlo/utils/size/global_size/global_size.dart';

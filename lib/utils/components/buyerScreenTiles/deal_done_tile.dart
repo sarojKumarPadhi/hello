@@ -3,6 +3,7 @@ import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../dialog_boxs/coursal_dialog.dart';
 import '../dialog_boxs/rate_now.dart';
 import '../textstyle.dart';
 
@@ -342,11 +343,21 @@ class DealDoneCard extends StatelessWidget {
                                               fit: BoxFit.fitHeight,
                                             )),
                                       ),
-                                      Text("View",
-                                          style: TextStyles.openSans(
-                                              fontSize: 8,
-                                              fontWeight: FontWeight.w600,
-                                              color: const Color(0xffFC8019))),
+                                      InkWell(
+                                        onTap: (){
+                                           showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return CarouselDialog();
+              },
+            );
+                                        },
+                                        child: Text("View",
+                                            style: TextStyles.openSans(
+                                                fontSize: 8,
+                                                fontWeight: FontWeight.w600,
+                                                color: const Color(0xffFC8019))),
+                                      ),
                                     ],
                                   ),
                                   Text("Product Image",

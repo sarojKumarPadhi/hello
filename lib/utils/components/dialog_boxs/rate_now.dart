@@ -90,7 +90,7 @@ class RateNowCustomDialog extends StatelessWidget {
                       maxLines: 5, // Set the number of lines for the TextField
                       decoration: InputDecoration(
                         hintText: 'Describe your experience (optional)',
-                        helperStyle: TextStyles.openSans(
+                        hintStyle: TextStyles.openSans(
                             fontWeight: FontWeight.w400,
                             color: const Color(0xff828282)),
                         contentPadding: const EdgeInsets.symmetric(

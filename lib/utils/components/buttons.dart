@@ -47,7 +47,7 @@ class Buttons {
       required Color textColor}) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: GlobalSizes.getDeviceWidth(context) * 0.02,
+        horizontal: GlobalSizes.getDeviceWidth(context) * 0.016,
         vertical: GlobalSizes.getDeviceHeight(context) * 0.009,
       ),
       child: SizedBox(
@@ -62,7 +62,11 @@ class Buttons {
               borderRadius: BorderRadius.circular(8.0),
             ),
             backgroundColor: color,
-            padding: EdgeInsets.all(GlobalSizes.getDeviceWidth(context) * 0.03),
+            padding: EdgeInsets.fromLTRB(
+                GlobalSizes.getDeviceWidth(context) * -0.1,
+                GlobalSizes.getDeviceHeight(context) * 0.001,
+                GlobalSizes.getDeviceWidth(context) * -0.1,
+                GlobalSizes.getDeviceHeight(context) * 0.001),
           ),
           child: Text(
             buttonText,

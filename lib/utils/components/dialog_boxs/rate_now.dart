@@ -77,8 +77,9 @@ class RateNowCustomDialog extends StatelessWidget {
                   ),
                   SizedBox(height: GlobalSizes.getDeviceHeight(context) * 0.01),
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0, vertical: 10),
+                    width: GlobalSizes.getDeviceWidth(context) * 0.7,
+                    padding:  EdgeInsets.fromLTRB(
+                        GlobalSizes.getDeviceWidth(context) * 0.01, GlobalSizes.getDeviceHeight(context) * 0.01,GlobalSizes.getDeviceWidth(context) * 0.01,GlobalSizes.getDeviceHeight(context) * 0.01),
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: const Color(0xffE4E4E4),
@@ -94,46 +95,50 @@ class RateNowCustomDialog extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             fontSize: 14,
                             color: const Color(0xff828282)),
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: -8.0, horizontal: -9.0),
+                        contentPadding:  EdgeInsets.symmetric(
+                            vertical: GlobalSizes.getDeviceHeight(context) * - 0.008),
                         border: InputBorder.none,
                       ),
                     ),
                   ),
                   SizedBox(
                     height: GlobalSizes.getDeviceHeight(context) * 0.01,
+                
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              right:
-                                  GlobalSizes.getDeviceWidth(context) * 0.009),
-                          child: Text(
-                            "Cancel",
-                            style: TextStyles.openSans(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                                color: const Color(0xff979797)),
-                          ),
-                        ),
-                      ),
-                      Buttons.shortButton(
-                          color: const Color(0xffFC8019),
-                          context: context,
-                          onPressedCallback: () {
-                            Fluttertoast.showToast(
-                                msg: 'Thank You For Your valuable feedback');
+                  Padding(
+                    padding:  EdgeInsets.only(left: GlobalSizes.getDeviceWidth(context) * 0.25 ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        InkWell(
+                          onTap: () {
                             Get.back();
                           },
-                          buttonText: "Submit",
-                          textColor: Colors.white),
-                    ],
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                right:
+                                    GlobalSizes.getDeviceWidth(context) * 0.009),
+                            child: Text(
+                              "Cancel",
+                              style: TextStyles.openSans(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                  color: const Color(0xff979797)),
+                            ),
+                          ),
+                        ),
+                        Buttons.shortButton(
+                            color: const Color(0xffFC8019),
+                            context: context,
+                            onPressedCallback: () {
+                              Fluttertoast.showToast(
+                                  msg: 'Thank You For Your valuable feedback');
+                              Get.back();
+                            },
+                            buttonText: "Submit",
+                            textColor: Colors.white),
+                      ],
+                    ),
                   ),
                 ],
               ),

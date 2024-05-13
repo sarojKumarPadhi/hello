@@ -393,7 +393,7 @@ class DealDoneCard extends StatelessWidget {
                       ],
                     ),
                     Padding(
-                      padding:  EdgeInsets.only(left: GlobalSizes.getDeviceWidth(context) * 00.05),
+                      padding:  EdgeInsets.only(left: GlobalSizes.getDeviceWidth(context) * 00.01),
                       child: Buttons.veryShortButton(
                           color: const Color(0xffFC8019),
                           context: context,

@@ -92,6 +92,7 @@ class RateNowCustomDialog extends StatelessWidget {
                         hintText: 'Describe your experience (optional)',
                         hintStyle: TextStyles.openSans(
                             fontWeight: FontWeight.w400,
+                            fontSize: 14,
                             color: const Color(0xff828282)),
                         contentPadding: const EdgeInsets.symmetric(
                             vertical: -8.0, horizontal: -9.0),

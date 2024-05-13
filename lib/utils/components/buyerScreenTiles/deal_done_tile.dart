@@ -16,7 +16,7 @@ class DealDoneCard extends StatelessWidget {
     return Container(
         width: double.infinity, // Adjust the width as needed
         height: GlobalSizes.getDeviceHeight(context) *
-            0.32, // Adjust the height as needed
+            0.27, // Adjust the height as needed
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(
@@ -392,12 +392,15 @@ class DealDoneCard extends StatelessWidget {
                         )
                       ],
                     ),
-                    Buttons.veryShortButton(
-                        color: const Color(0xffFC8019),
-                        context: context,
-                        onPressedCallback: () {},
-                        buttonText: 'Call',
-                        textColor: const Color(0xffFFFFFF))
+                    Padding(
+                      padding:  EdgeInsets.only(left: GlobalSizes.getDeviceWidth(context) * 00.05),
+                      child: Buttons.veryShortButton(
+                          color: const Color(0xffFC8019),
+                          context: context,
+                          onPressedCallback: () {},
+                          buttonText: 'Call',
+                          textColor: const Color(0xffFFFFFF)),
+                    )
                   ],
                 ),
               ),

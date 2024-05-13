@@ -16,7 +16,7 @@ class DealDoneCard extends StatelessWidget {
     return Container(
         width: double.infinity, // Adjust the width as needed
         height: GlobalSizes.getDeviceHeight(context) *
-            0.27, // Adjust the height as needed
+            0.315, // Adjust the height as needed
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(
@@ -33,12 +33,12 @@ class DealDoneCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 10,
+             SizedBox(
+              height: GlobalSizes.getDeviceHeight(context) * 0.01,
             ),
             Padding(
               padding: EdgeInsets.only(
-                  left: GlobalSizes.getDeviceHeight(context) * 0.023),
+                  left: GlobalSizes.getDeviceWidth(context) * 0.048),
               child: Text(
                 "Requirement ID #16526545",
                 style: TextStyles.openSans(
@@ -175,7 +175,7 @@ class DealDoneCard extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: GlobalSizes.getDeviceHeight(context) * 0.023),
+                  horizontal: GlobalSizes.getDeviceWidth(context) * 0.06),
               child: RichText(
                 text: TextSpan(
                   children: [
@@ -205,7 +205,7 @@ class DealDoneCard extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(
-                  GlobalSizes.getDeviceWidth(context) * 0.038,
+                  GlobalSizes.getDeviceWidth(context) * 0.06,
                   GlobalSizes.getDeviceHeight(context) * 0.01,
                   GlobalSizes.getDeviceWidth(context) * 0.02,
                   GlobalSizes.getDeviceHeight(context) * 0.01),
@@ -297,7 +297,7 @@ class DealDoneCard extends StatelessWidget {
                                 height:
                                     GlobalSizes.getDeviceHeight(context) * 0.02,
                                 width:
-                                    GlobalSizes.getDeviceHeight(context) * 0.02,
+                                    GlobalSizes.getDeviceWidth(context) * 0.03,
                               ),
                               Column(
                                 children: [
@@ -322,7 +322,7 @@ class DealDoneCard extends StatelessWidget {
                                 height:
                                     GlobalSizes.getDeviceHeight(context) * 0.02,
                                 width:
-                                    GlobalSizes.getDeviceHeight(context) * 0.02,
+                                    GlobalSizes.getDeviceWidth(context) * 0.03,
                               ),
                               Column(
                                 children: [

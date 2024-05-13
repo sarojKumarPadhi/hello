@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/components/buyerScreenTiles/deal_done_tile.dart';
-import '../../../utils/components/buyerScreenTiles/rejected_tiles.dart';
 import '../../../utils/size/global_size/global_size.dart';
 
 class DealDoneTab extends StatelessWidget {

@@ -2,6 +2,7 @@ import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:dekhlo/views/home_screen_buyer.dart/tabs/inprocess_tab.dart';
 import 'package:dekhlo/views/home_screen_buyer.dart/tabs/rejected_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../utils/components/coustoum_serch_bar.dart';
 import '../../utils/components/textstyle.dart';
@@ -27,11 +28,12 @@ class HomeBuyer extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Expanded(
+                    SizedBox(
+                      width: GlobalSizes.getDeviceWidth(context) * 0.6,
                       child: SlimSearchBar(),
                     ),
                     SizedBox(
-                      width: GlobalSizes.getDeviceHeight(context) * 0.02,
+                      width: GlobalSizes.getDeviceHeight(context) * 0.015,
                     ),
                     SizedBox(
                         height: GlobalSizes.getDeviceHeight(context) * 0.03,
@@ -40,7 +42,7 @@ class HomeBuyer extends StatelessWidget {
                           fit: BoxFit.fitHeight,
                         )),
                     SizedBox(
-                      width: GlobalSizes.getDeviceHeight(context) * 0.01,
+                      width: GlobalSizes.getDeviceHeight(context) * 0.015,
                     ),
                     SizedBox(
                       height: GlobalSizes.getDeviceHeight(context) * 0.03,
@@ -50,7 +52,7 @@ class HomeBuyer extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: GlobalSizes.getDeviceHeight(context) * 0.01,
+                      width: GlobalSizes.getDeviceHeight(context) * 0.015,
                     ),
                     SizedBox(
                       height: GlobalSizes.getDeviceHeight(context) * 0.038,
@@ -66,10 +68,10 @@ class HomeBuyer extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 16, // Adjust spacing between search bar and tab bar
+                height: 14, // Adjust spacing between search bar and tab bar
               ),
               SizedBox(
-                height: 20,
+                height: GlobalSizes.getDeviceHeight(context) * 0.05,
                 child: TabBar(
                   labelColor: const Color(0xffFC8019),
                   unselectedLabelColor: const Color(0xff4A4A4A),
@@ -78,7 +80,7 @@ class HomeBuyer extends StatelessWidget {
                       child: Text(
                         'New (05)',
                         style: TextStyles.openSans(
-                          fontSize: 11,
+                          fontSize: 14,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -87,7 +89,7 @@ class HomeBuyer extends StatelessWidget {
                       child: Text(
                         'In process (02)',
                         style: TextStyles.openSans(
-                          fontSize: 11,
+                          fontSize: 14,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -96,7 +98,7 @@ class HomeBuyer extends StatelessWidget {
                       child: Text(
                         'Deal Done',
                         style: TextStyles.openSans(
-                          fontSize: 11,
+                          fontSize: 14,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -105,7 +107,7 @@ class HomeBuyer extends StatelessWidget {
                       child: Text(
                         'Rejected',
                         style: TextStyles.openSans(
-                          fontSize: 11,
+                          fontSize: 14,
                           fontWeight: FontWeight.w600,
                         ),
                       ),

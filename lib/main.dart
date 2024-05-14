@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      // home: const Login(),
-      home: const HomeBuyer(),
+      home: const Login(),
+      //home: const HomeBuyer(),
       getPages: AppPages.pages,
     );
   }

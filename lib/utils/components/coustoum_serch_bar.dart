@@ -19,7 +19,7 @@ class SlimSearchBar extends StatelessWidget {
         child: TextField(
             controller: searchController,
             decoration: InputDecoration(
-              hintText: 'Search by name, contact....',
+              hintText: 'Search by name, contact..',
               hintStyle: TextStyles.openSans(
                   fontSize: 15, fontWeight: FontWeight.w300),
               contentPadding: EdgeInsets.only(

@@ -34,7 +34,7 @@ class DealDoneCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             SizedBox(
+            SizedBox(
               height: GlobalSizes.getDeviceHeight(context) * 0.01,
             ),
             Padding(
@@ -43,7 +43,7 @@ class DealDoneCard extends StatelessWidget {
               child: Text(
                 "Requirement ID #16526545",
                 style: TextStyles.openSans(
-                    fontSize: 10, fontWeight: FontWeight.w600),
+                    fontSize: 12, fontWeight: FontWeight.w600),
               ),
             ),
             SizedBox(
@@ -61,31 +61,31 @@ class DealDoneCard extends StatelessWidget {
                         Text(
                           "Electronics ",
                           style: TextStyles.openSans(
-                              fontSize: 10, fontWeight: FontWeight.w400),
+                              fontSize: 12, fontWeight: FontWeight.w400),
                         ),
                         Text(" | ",
                             style: TextStyles.openSans(
-                                fontSize: 10, fontWeight: FontWeight.w400)),
+                                fontSize: 12, fontWeight: FontWeight.w400)),
                         Text(
                           "Table lamp",
                           style: TextStyles.openSans(
-                              fontSize: 10, fontWeight: FontWeight.w400),
+                              fontSize: 12, fontWeight: FontWeight.w400),
                         ),
                         Text(" | ",
                             style: TextStyles.openSans(
-                                fontSize: 10, fontWeight: FontWeight.w400)),
+                                fontSize: 12, fontWeight: FontWeight.w400)),
                         Text("Phillips",
                             style: TextStyles.openSans(
-                                fontSize: 10, fontWeight: FontWeight.w400))
+                                fontSize: 12, fontWeight: FontWeight.w400))
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 10),
+                    padding: const EdgeInsets.only(right: 12),
                     child: Text(
                       "05 Feb ‘24",
                       style: TextStyles.openSans(
-                          fontSize: 10, fontWeight: FontWeight.w600),
+                          fontSize: 12, fontWeight: FontWeight.w600),
                     ),
                   )
                 ],
@@ -106,17 +106,17 @@ class DealDoneCard extends StatelessWidget {
                     Text(
                       "#12638",
                       style: TextStyles.openSans(
-                          fontWeight: FontWeight.w600, fontSize: 10),
+                          fontWeight: FontWeight.w600, fontSize: 12),
                     ),
                     Text(
                       "Model No",
                       style: TextStyles.openSans(
-                          fontWeight: FontWeight.w400, fontSize: 10),
+                          fontWeight: FontWeight.w400, fontSize: 12),
                     )
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 13.7),
                   child: Image.asset("assest/bigLine.png"),
                 ),
                 Column(
@@ -134,7 +134,7 @@ class DealDoneCard extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 13.5),
                   child: Image.asset("assest/bigLine.png"),
                 ),
                 Column(
@@ -152,7 +152,7 @@ class DealDoneCard extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 13.5),
                   child: Image.asset("assest/bigLine.png"),
                 ),
                 Column(
@@ -344,19 +344,20 @@ class DealDoneCard extends StatelessWidget {
                                             )),
                                       ),
                                       InkWell(
-                                        onTap: (){
-                                           showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return CarouselDialog();
-              },
-            );
+                                        onTap: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return CarouselDialog();
+                                            },
+                                          );
                                         },
                                         child: Text("View",
                                             style: TextStyles.openSans(
                                                 fontSize: 8,
                                                 fontWeight: FontWeight.w600,
-                                                color: const Color(0xffFC8019))),
+                                                color:
+                                                    const Color(0xffFC8019))),
                                       ),
                                     ],
                                   ),
@@ -404,7 +405,8 @@ class DealDoneCard extends StatelessWidget {
                       ],
                     ),
                     Padding(
-                      padding:  EdgeInsets.only(left: GlobalSizes.getDeviceWidth(context) * 00.01),
+                      padding: EdgeInsets.only(
+                          left: GlobalSizes.getDeviceWidth(context) * 00.01),
                       child: Buttons.veryShortButton(
                           color: const Color(0xffFC8019),
                           context: context,

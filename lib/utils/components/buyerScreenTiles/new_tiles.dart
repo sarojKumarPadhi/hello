@@ -14,7 +14,7 @@ class NewSquareCard extends StatelessWidget {
     return Container(
         width: double.infinity, // Adjust the width as needed
         height: GlobalSizes.getDeviceHeight(context) *
-            0.28, // Adjust the height as needed
+            0.32, // Adjust the height as needed
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(
@@ -40,7 +40,7 @@ class NewSquareCard extends StatelessWidget {
               child: Text(
                 "Requirement ID #16526545",
                 style: TextStyles.openSans(
-                    fontSize: 10, fontWeight: FontWeight.w600),
+                    fontSize: 12, fontWeight: FontWeight.w600),
               ),
             ),
             SizedBox(
@@ -58,31 +58,31 @@ class NewSquareCard extends StatelessWidget {
                         Text(
                           "Electronics ",
                           style: TextStyles.openSans(
-                              fontSize: 10, fontWeight: FontWeight.w400),
+                              fontSize: 12, fontWeight: FontWeight.w400),
                         ),
                         Text(" | ",
                             style: TextStyles.openSans(
-                                fontSize: 10, fontWeight: FontWeight.w400)),
+                                fontSize: 12, fontWeight: FontWeight.w400)),
                         Text(
                           "Table lamp",
                           style: TextStyles.openSans(
-                              fontSize: 10, fontWeight: FontWeight.w400),
+                              fontSize: 12, fontWeight: FontWeight.w400),
                         ),
                         Text(" | ",
                             style: TextStyles.openSans(
                                 fontSize: 10, fontWeight: FontWeight.w400)),
                         Text("Phillips",
                             style: TextStyles.openSans(
-                                fontSize: 10, fontWeight: FontWeight.w400))
+                                fontSize: 12, fontWeight: FontWeight.w400))
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 10),
+                    padding: const EdgeInsets.only(right: 12),
                     child: Text(
                       "05 Feb ‘24",
                       style: TextStyles.openSans(
-                          fontSize: 10, fontWeight: FontWeight.w600),
+                          fontSize: 12, fontWeight: FontWeight.w600),
                     ),
                   )
                 ],
@@ -96,24 +96,27 @@ class NewSquareCard extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: GlobalSizes.getDeviceHeight(context) * 0.025),
-                  child: Image.asset("assest/sellitems.png"),
+                  child: SizedBox(
+                      width: GlobalSizes.getDeviceWidth(context) * 0.15,
+                      height: GlobalSizes.getDeviceHeight(context) * 0.09,
+                      child: Image.asset("assest/sellitems.png")),
                 ),
                 Column(
                   children: [
                     Text(
                       "#12638",
                       style: TextStyles.openSans(
-                          fontWeight: FontWeight.w600, fontSize: 10),
+                          fontWeight: FontWeight.w600, fontSize: 12),
                     ),
                     Text(
                       "Model No",
                       style: TextStyles.openSans(
-                          fontWeight: FontWeight.w400, fontSize: 10),
+                          fontWeight: FontWeight.w400, fontSize: 12),
                     )
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: Image.asset("assest/bigLine.png"),
                 ),
                 Column(
@@ -121,17 +124,17 @@ class NewSquareCard extends StatelessWidget {
                     Text(
                       "02",
                       style: TextStyles.openSans(
-                          fontWeight: FontWeight.w600, fontSize: 10),
+                          fontWeight: FontWeight.w600, fontSize: 12),
                     ),
                     Text(
                       "Qty",
                       style: TextStyles.openSans(
-                          fontWeight: FontWeight.w400, fontSize: 10),
+                          fontWeight: FontWeight.w400, fontSize: 12),
                     ),
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 13),
                   child: Image.asset("assest/bigLine.png"),
                 ),
                 Column(
@@ -139,12 +142,12 @@ class NewSquareCard extends StatelessWidget {
                     Text(
                       "{value}",
                       style: TextStyles.openSans(
-                          fontWeight: FontWeight.w600, fontSize: 10),
+                          fontWeight: FontWeight.w600, fontSize: 12),
                     ),
                     Text(
                       "10",
                       style: TextStyles.openSans(
-                          fontWeight: FontWeight.w400, fontSize: 10),
+                          fontWeight: FontWeight.w400, fontSize: 12),
                     ),
                   ],
                 ),
@@ -157,12 +160,12 @@ class NewSquareCard extends StatelessWidget {
                     Text(
                       "{value}",
                       style: TextStyles.openSans(
-                          fontWeight: FontWeight.w600, fontSize: 10),
+                          fontWeight: FontWeight.w600, fontSize: 12),
                     ),
                     Text(
                       "Units",
                       style: TextStyles.openSans(
-                          fontWeight: FontWeight.w400, fontSize: 10),
+                          fontWeight: FontWeight.w400, fontSize: 12),
                     ),
                   ],
                 ),
@@ -173,7 +176,7 @@ class NewSquareCard extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: GlobalSizes.getDeviceHeight(context) * 0.023),
+                  horizontal: GlobalSizes.getDeviceHeight(context) * 0.025),
               child: RichText(
                 text: TextSpan(
                   children: [
@@ -181,7 +184,7 @@ class NewSquareCard extends StatelessWidget {
                       text: text.length > 132 ? text.substring(0, 134) : text,
                       style: TextStyles.openSans(
                         color: Colors.black,
-                        fontSize: 11,
+                        fontSize: 13,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -189,7 +192,7 @@ class NewSquareCard extends StatelessWidget {
                       const TextSpan(
                         text: " more..",
                         style: TextStyle(
-                          fontSize: 11,
+                          fontSize: 13,
                           fontWeight: FontWeight.w400,
                           color: Color(0xffFC8019),
                         ),
@@ -210,35 +213,40 @@ class NewSquareCard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Image.asset("assest/info.png"),
+                      Image.asset(
+                        "assest/info.png",
+                        height: 10,
+                      ),
                       Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal:
-                                GlobalSizes.getDeviceWidth(context) * 0.03),
+                        padding: EdgeInsets.fromLTRB(
+                            GlobalSizes.getDeviceWidth(context) * 0.015,
+                            GlobalSizes.getDeviceHeight(context) * 0.014,
+                            GlobalSizes.getDeviceWidth(context) * 0.067,
+                            GlobalSizes.getDeviceHeight(context) * 0.014),
                         child: Text(
                           "Delete requirement before seller accepts.",
                           style: TextStyles.openSans(
-                              fontSize: 10, fontWeight: FontWeight.w400),
+                              fontSize: 12, fontWeight: FontWeight.w400),
                         ),
                       ),
+                      InkWell(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const DeleteItemDialog();
+                            },
+                          );
+                        },
+                        child: SizedBox(
+                            width: GlobalSizes.getDeviceWidth(context) * 0.09,
+                            child: Image.asset(
+                              "assest/delete-filled.png",
+                              fit: BoxFit.fitWidth,
+                            )),
+                      )
                     ],
                   ),
-                  InkWell(
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return const DeleteItemDialog();
-                        },
-                      );
-                    },
-                    child: SizedBox(
-                        width: GlobalSizes.getDeviceWidth(context) * 0.09,
-                        child: Image.asset(
-                          "assest/delete-filled.png",
-                          fit: BoxFit.fitWidth,
-                        )),
-                  )
                 ],
               ),
             )

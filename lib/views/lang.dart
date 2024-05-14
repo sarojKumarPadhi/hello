@@ -1,4 +1,5 @@
 import 'package:dekhlo/controllers/languageController.dart';
+import 'package:dekhlo/utils/routes/routes_names.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -117,7 +118,7 @@ class Lag extends StatelessWidget {
                   textColor: Colors.white,
                   context: context,
                   onPressedCallback: () {
-                    // Get.toNamed(RoutesN)
+                    Get.toNamed(RouteName.homeBuyerScreen);
                     // to be continued
                   },
                 );

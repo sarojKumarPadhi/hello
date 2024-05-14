@@ -80,42 +80,36 @@ class Buttons {
     );
   }
 
-  static SizedBox veryShortButton(
-      {required Color color,
+ static GestureDetector veryShortButton(
+  {required Color color,
       required BuildContext context,
       required VoidCallback onPressedCallback,
       required String buttonText,
-      required Color textColor}) {
-    return SizedBox(
-      width: GlobalSizes.getDeviceWidth(context) * 0.25,
-      height: GlobalSizes.getDeviceHeight(context) * 0.035,
-      child: Padding(
-        padding: EdgeInsets.only(
-          left: GlobalSizes.getDeviceWidth(context) * 0.09,
+      required Color textColor}
+ ){
+  return GestureDetector(
+      onTap: onPressedCallback,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.15,
+        height: MediaQuery.of(context).size.height * 0.04,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(8.0),
         ),
-        child: ElevatedButton(
-          onPressed: onPressedCallback,
-          style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            backgroundColor: color,
-            padding: EdgeInsets.fromLTRB(
-                GlobalSizes.getDeviceWidth(context) * 0.01,
-                GlobalSizes.getDeviceHeight(context) * 0.001,
-                GlobalSizes.getDeviceWidth(context) * 0.01,
-                GlobalSizes.getDeviceHeight(context) * 0.001),
-          ),
+        child: Center(
           child: Text(
             buttonText,
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              fontSize: 10, // Adjust font size as needed
-              color: textColor, // Text color
+              fontSize: 12, // Adjust font size as needed
+              color: textColor,
             ),
           ),
         ),
       ),
     );
-  }
+ }
+
+
+
 }

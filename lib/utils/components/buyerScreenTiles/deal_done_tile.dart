@@ -208,11 +208,11 @@ class DealDoneCard extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(
                   GlobalSizes.getDeviceWidth(context) * 0.06,
                   GlobalSizes.getDeviceHeight(context) * 0.01,
-                  GlobalSizes.getDeviceWidth(context) * 0.02,
+                 0,
                   GlobalSizes.getDeviceHeight(context) * 0.01),
               child: Container(
                 height: GlobalSizes.getDeviceHeight(context) * 0.08,
-                width: double.infinity,
+                width: GlobalSizes.getDeviceWidth(context) * 0.87,
                 decoration: BoxDecoration(
                   color: const Color(0xffFFF5ED),
                   borderRadius:
@@ -239,7 +239,7 @@ class DealDoneCard extends StatelessWidget {
                               Text(
                                 "The Big Bookstore",
                                 style: TextStyles.openSans(
-                                    fontWeight: FontWeight.w600, fontSize: 8),
+                                    fontWeight: FontWeight.w600, fontSize: 10),
                               ),
                               SizedBox(
                                 width:
@@ -248,7 +248,7 @@ class DealDoneCard extends StatelessWidget {
                               Text(
                                 "4.7 (5)",
                                 style: TextStyles.openSans(
-                                    fontWeight: FontWeight.w400, fontSize: 7),
+                                    fontWeight: FontWeight.w400, fontSize: 9),
                               ),
                               SizedBox(
                                 width:
@@ -263,7 +263,7 @@ class DealDoneCard extends StatelessWidget {
                                 "5 KM away",
                                 style: GoogleFonts.openSans(
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 8,
+                                  fontSize: 10,
                                   decoration: TextDecoration.underline,
                                 ),
                               ),
@@ -279,12 +279,12 @@ class DealDoneCard extends StatelessWidget {
                                 children: [
                                   Text("₹ 1200",
                                       style: TextStyles.openSans(
-                                          fontSize: 8,
+                                          fontSize: 10,
                                           fontWeight: FontWeight.w600,
                                           color: const Color(0xffFC8019))),
                                   Text("Quotation",
                                       style: TextStyles.openSans(
-                                          fontSize: 6,
+                                          fontSize: 8,
                                           fontWeight: FontWeight.w400,
                                           color: const Color(0xfff4a4a4a))),
                                 ],
@@ -304,12 +304,12 @@ class DealDoneCard extends StatelessWidget {
                                 children: [
                                   Text("Similar",
                                       style: TextStyles.openSans(
-                                          fontSize: 8,
+                                          fontSize: 10,
                                           fontWeight: FontWeight.w600,
                                           color: const Color(0xffFC8019))),
                                   Text("Product Type",
                                       style: TextStyles.openSans(
-                                          fontSize: 6,
+                                          fontSize: 8,
                                           fontWeight: FontWeight.w400,
                                           color: const Color(0xfff4a4a4a))),
                                 ],
@@ -337,7 +337,7 @@ class DealDoneCard extends StatelessWidget {
                                         child: SizedBox(
                                             height: GlobalSizes.getDeviceHeight(
                                                     context) *
-                                                0.01,
+                                                0.015,
                                             child: Image.asset(
                                               "assest/image_view.png",
                                               fit: BoxFit.fitHeight,
@@ -354,7 +354,7 @@ class DealDoneCard extends StatelessWidget {
                                         },
                                         child: Text("View",
                                             style: TextStyles.openSans(
-                                                fontSize: 8,
+                                                fontSize: 10,
                                                 fontWeight: FontWeight.w600,
                                                 color:
                                                     const Color(0xffFC8019))),
@@ -363,7 +363,7 @@ class DealDoneCard extends StatelessWidget {
                                   ),
                                   Text("Product Image",
                                       style: TextStyles.openSans(
-                                          fontSize: 6,
+                                          fontSize: 8,
                                           fontWeight: FontWeight.w400,
                                           color: const Color(0xfff4a4a4a))),
                                 ],
@@ -388,13 +388,13 @@ class DealDoneCard extends StatelessWidget {
                                     },
                                     child: Text("Rate now",
                                         style: TextStyles.openSans(
-                                            fontSize: 8,
+                                            fontSize: 10,
                                             fontWeight: FontWeight.w600,
                                             color: const Color(0xffFC8019))),
                                   ),
                                   Text("Give your Feedback",
                                       style: TextStyles.openSans(
-                                          fontSize: 6,
+                                          fontSize: 8,
                                           fontWeight: FontWeight.w400,
                                           color: const Color(0xfff4a4a4a))),
                                 ],
@@ -402,19 +402,18 @@ class DealDoneCard extends StatelessWidget {
                             ],
                           ),
                         )
+                      
                       ],
+                      
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: GlobalSizes.getDeviceWidth(context) * 00.01),
-                      child: Buttons.veryShortButton(
-                          color: const Color(0xffFC8019),
-                          context: context,
-                          onPressedCallback: () {},
-                          buttonText: 'Call',
-                          textColor: const Color(0xffFFFFFF)),
-                    )
+                   Padding(
+                     padding:  EdgeInsets.only(left: GlobalSizes.getDeviceWidth(context) * 0.04),
+                     child: Buttons.veryShortButton(color: Color(0xffFC8019), context: context, onPressedCallback: (){}, buttonText: 'Call', textColor: Colors.white),
+                   )
+                    
+                    
                   ],
+                  
                 ),
               ),
             )

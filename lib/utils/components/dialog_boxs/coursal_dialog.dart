@@ -49,7 +49,7 @@ class _CarouselDialogState extends State<CarouselDialog> {
                     return Builder(
                       builder: (BuildContext context) {
                         return Container(
-                          width: GlobalSizes.getDeviceWidth(context) * 0.78,
+                          width: GlobalSizes.getDeviceWidth(context) * 0.75,
                           child: Padding(
                             padding: EdgeInsets.only(top: GlobalSizes.getDeviceHeight(context) * 0.007),
                             child: Image.asset(
@@ -64,7 +64,7 @@ class _CarouselDialogState extends State<CarouselDialog> {
                 ),
                 Positioned(
                   top: 10,
-                  right: 10,
+                  right: 15,
                   child:Container(
                     width: 30, // Adjust width as needed
                     height: 30, // Adjust height as needed

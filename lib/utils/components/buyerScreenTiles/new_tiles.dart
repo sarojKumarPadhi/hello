@@ -1,5 +1,6 @@
 import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../dialog_boxs/delete_dialog.dart';
 import '../textstyle.dart';
@@ -13,12 +14,11 @@ class NewSquareCard extends StatelessWidget {
         "Hi, I want a keyboard which is wireless. Looking for Need 5 of them. Please get back as soon as possible if it available in your store";
     return Container(
         width: double.infinity, // Adjust the width as needed
-        height: GlobalSizes.getDeviceHeight(context) *
-            0.32, // Adjust the height as needed
+        height: 200.h, // Adjust the height as needed
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(
-              4), // Adjust the border radius for a squared shape
+              4.r), // Adjust the border radius for a squared shape
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.2),
@@ -36,11 +36,11 @@ class NewSquareCard extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.only(
-                  left: GlobalSizes.getDeviceHeight(context) * 0.023),
+                  left: 17.w),
               child: Text(
                 "Requirement ID #16526545",
                 style: TextStyles.openSans(
-                    fontSize: 12, fontWeight: FontWeight.w600),
+                    fontSize: 14, fontWeight: FontWeight.w600),
               ),
             ),
             SizedBox(

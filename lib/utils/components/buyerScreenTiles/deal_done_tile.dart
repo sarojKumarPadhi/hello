@@ -373,7 +373,7 @@ class DealDoneCard extends StatelessWidget {
                                 height:
                                     GlobalSizes.getDeviceHeight(context) * 0.02,
                                 width:
-                                    GlobalSizes.getDeviceHeight(context) * 0.02,
+                                    GlobalSizes.getDeviceHeight(context) * 0.01,
                               ),
                               Column(
                                 children: [
@@ -392,11 +392,14 @@ class DealDoneCard extends StatelessWidget {
                                             fontWeight: FontWeight.w600,
                                             color: const Color(0xffFC8019))),
                                   ),
-                                  Text("Give your Feedback",
-                                      style: TextStyles.openSans(
-                                          fontSize: 8,
-                                          fontWeight: FontWeight.w400,
-                                          color: const Color(0xfff4a4a4a))),
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 10),
+                                    child: Text("Give your Feedback",
+                                        style: TextStyles.openSans(
+                                            fontSize: 8,
+                                            fontWeight: FontWeight.w400,
+                                            color: const Color(0xfff4a4a4a))),
+                                  ),
                                 ],
                               ),
                             ],
@@ -407,7 +410,7 @@ class DealDoneCard extends StatelessWidget {
                       
                     ),
                    Padding(
-                     padding:  EdgeInsets.only(left: GlobalSizes.getDeviceWidth(context) * 0.04),
+                     padding:  EdgeInsets.only(left: GlobalSizes.getDeviceWidth(context) * 0.0),
                      child: Buttons.veryShortButton(color: Color(0xffFC8019), context: context, onPressedCallback: (){}, buttonText: 'Call', textColor: Colors.white),
                    )
                     

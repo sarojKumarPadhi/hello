@@ -90,7 +90,7 @@ class Buttons {
   return GestureDetector(
       onTap: onPressedCallback,
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.15,
+        width: MediaQuery.of(context).size.width * 0.127,
         height: MediaQuery.of(context).size.height * 0.04,
         decoration: BoxDecoration(
           color: color,

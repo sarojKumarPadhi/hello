@@ -1,5 +1,5 @@
 import 'package:dekhlo/utils/size/global_size/global_size.dart';
-import 'package:dekhlo/views/home_screen_buyer.dart/tabs/inprocess_tab.dart';
+import 'package:dekhlo/views/home_screen_buyer.dart/tabs/new_tab.dart';
 import 'package:dekhlo/views/home_screen_buyer.dart/tabs/rejected_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import '../../utils/components/coustoum_serch_bar.dart';
 import '../../utils/components/textstyle.dart';
 import 'tabs/deal_done.dart';
+import 'tabs/inprocess_tab.dart';
 
 class HomeBuyer extends StatelessWidget {
   const HomeBuyer({super.key});
@@ -121,8 +122,8 @@ class HomeBuyer extends StatelessWidget {
               const Expanded(
                 child: TabBarView(
                   children: [
+                    NewTab(), // inprocess tab
                     InProcessTab(), // inprocess tab
-                    Center(child: Text('Tab 4 Content')),
                     DealDoneTab(), //Deal Done
                     RejectedTab(), // rejected tab
                   ],

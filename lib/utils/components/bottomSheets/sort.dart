@@ -53,7 +53,7 @@ sortDialogBox({required context}) {
                 ),
                 leading: Radio(
                   fillColor: MaterialStatePropertyAll(Color(0xffFC8019)),
-                  value: 0,
+                  value: 1,
                   groupValue: dialogBoxController.selectedValue.value,
                   onChanged: (value) {
                     dialogBoxController.setSelectedValue(value!);
@@ -70,7 +70,7 @@ sortDialogBox({required context}) {
                 ),
                 leading: Radio(
                   fillColor: const MaterialStatePropertyAll(Color(0xffFC8019)),
-                  value: 1,
+                  value: 2,
                   groupValue: dialogBoxController.selectedValue.value,
                   onChanged: (value) {
                     dialogBoxController.setSelectedValue(value!);

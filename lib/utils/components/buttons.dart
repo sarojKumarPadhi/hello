@@ -141,8 +141,8 @@ class Buttons {
     return Padding(
         padding: EdgeInsets.only(right: 7.w),
         child: SizedBox(
-          height: 34.h,
-          width: 55.w,
+          height: 33.h,
+          width: 33.w,
           child: TextButton(
               style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(Color(0xffFC8019)),

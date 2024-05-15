@@ -319,7 +319,7 @@ class InprocessTile extends StatelessWidget {
                                               Padding(
                                                 padding: EdgeInsets.symmetric(
                                                     horizontal: 3.w,
-                                                    vertical: 3.h),
+                                                    vertical: 2.h),
                                                 child: Row(
                                                   children: [
                                                     Image.asset(
@@ -331,7 +331,7 @@ class InprocessTile extends StatelessWidget {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
-                                                              fontSize: 10),
+                                                              fontSize: 12),
                                                     ),
                                                     SizedBox(
                                                       width: GlobalSizes
@@ -346,21 +346,15 @@ class InprocessTile extends StatelessWidget {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w400,
-                                                              fontSize: 9),
+                                                              fontSize: 12),
                                                     ),
                                                     SizedBox(
-                                                      width: GlobalSizes
-                                                              .getDeviceWidth(
-                                                                  context) *
-                                                          0.02,
+                                                      width: 6.w,
                                                     ),
                                                     Image.asset(
                                                         "assest/google_map_icon.png"),
                                                     SizedBox(
-                                                      width: GlobalSizes
-                                                              .getDeviceWidth(
-                                                                  context) *
-                                                          0.01,
+                                                      width: 1.w,
                                                     ),
                                                     Text(
                                                       "5 KM away",
@@ -368,7 +362,7 @@ class InprocessTile extends StatelessWidget {
                                                           GoogleFonts.openSans(
                                                         fontWeight:
                                                             FontWeight.w400,
-                                                        fontSize: 10,
+                                                        fontSize: 12,
                                                         decoration:
                                                             TextDecoration
                                                                 .underline,
@@ -378,18 +372,15 @@ class InprocessTile extends StatelessWidget {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsets.only(
-                                                    left: GlobalSizes
-                                                            .getDeviceWidth(
-                                                                context) *
-                                                        0.02),
+                                                padding:
+                                                    EdgeInsets.only(left: 2.w),
                                                 child: Row(
                                                   children: [
                                                     Column(
                                                       children: [
                                                         Text("₹ 1200",
                                                             style: TextStyles.openSans(
-                                                                fontSize: 10,
+                                                                fontSize: 12,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -397,7 +388,7 @@ class InprocessTile extends StatelessWidget {
                                                                     0xffFC8019))),
                                                         Text("Quotation",
                                                             style: TextStyles.openSans(
-                                                                fontSize: 8,
+                                                                fontSize: 10,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w400,
@@ -426,7 +417,7 @@ class InprocessTile extends StatelessWidget {
                                                       children: [
                                                         Text("Similar",
                                                             style: TextStyles.openSans(
-                                                                fontSize: 10,
+                                                                fontSize: 12,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -434,7 +425,7 @@ class InprocessTile extends StatelessWidget {
                                                                     0xffFC8019))),
                                                         Text("Product Type",
                                                             style: TextStyles.openSans(
-                                                                fontSize: 8,
+                                                                fontSize: 10,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w400,
@@ -470,10 +461,7 @@ class InprocessTile extends StatelessWidget {
                                                                               context) *
                                                                       0.01),
                                                               child: SizedBox(
-                                                                  height: GlobalSizes
-                                                                          .getDeviceHeight(
-                                                                              context) *
-                                                                      0.015,
+                                                                  height: 10.h,
                                                                   child: Image
                                                                       .asset(
                                                                     "assest/image_view.png",
@@ -497,7 +485,7 @@ class InprocessTile extends StatelessWidget {
                                                                   "View",
                                                                   style: TextStyles.openSans(
                                                                       fontSize:
-                                                                          10,
+                                                                          12,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -508,7 +496,7 @@ class InprocessTile extends StatelessWidget {
                                                         ),
                                                         Text("Product Image",
                                                             style: TextStyles.openSans(
-                                                                fontSize: 8,
+                                                                fontSize: 10,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w400,
@@ -547,7 +535,7 @@ class InprocessTile extends StatelessWidget {
                                                                   children: [
                                                                     Padding(
                                                                       padding: EdgeInsets.fromLTRB(
-                                                                          62.w,
+                                                                          40.w,
                                                                           0.h,
                                                                           10.h,
                                                                           0.h),
@@ -571,34 +559,40 @@ class InprocessTile extends StatelessWidget {
                                                               ),
                                                       );
                                                     }),
+                                                    Obx(() {
+                                                      return inProcessController
+                                                              .index
+                                                              .contains(index)
+                                                          ? Buttons
+                                                              .smallDealDoneButton()
+                                                          : Padding(
+                                                              padding: EdgeInsets
+                                                                  .only(
+                                                                      top: 0.h),
+                                                              child: Center(
+                                                                child:
+                                                                    Container(
+                                                                  decoration: const BoxDecoration(
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                      color: Color(
+                                                                          0xffFFEAEC)),
+                                                                  child:
+                                                                      const Icon(
+                                                                    Icons.close,
+                                                                    size: 15,
+                                                                    color: Color(
+                                                                        0xffBC0000),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            );
+                                                    })
                                                   ],
                                                 ),
                                               )
                                             ],
                                           ),
-                                          Obx(() {
-                                            return inProcessController.index
-                                                    .contains(index)
-                                                ? Buttons.smallDealDoneButton()
-                                                : Padding(
-                                                    padding: EdgeInsets.only(
-                                                        top: 5.h),
-                                                    child: Container(
-                                                      decoration:
-                                                          const BoxDecoration(
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                              color: Color(
-                                                                  0xffFFEAEC)),
-                                                      child: const Icon(
-                                                        Icons.close,
-                                                        size: 15,
-                                                        color:
-                                                            Color(0xffBC0000),
-                                                      ),
-                                                    ),
-                                                  );
-                                          })
                                         ],
                                       ),
                                     ),

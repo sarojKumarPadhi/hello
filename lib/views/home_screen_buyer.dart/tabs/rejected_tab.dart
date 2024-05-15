@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/components/buyerScreenTiles/rejected_tiles.dart';
-import '../../../utils/size/global_size/global_size.dart';
 
 class RejectedTab extends StatelessWidget {
   const RejectedTab({super.key});
@@ -19,25 +18,6 @@ class RejectedTab extends StatelessWidget {
             );
           }),
         ),
-        Expanded(
-          flex: 1,
-          child: Row(
-            children: [
-              SizedBox(
-                width: GlobalSizes.getDeviceWidth(context) * 0.5,
-                child: SizedBox(
-                    width: 110,
-                    child: Image.asset(
-                      "assest/buying.png",
-                      fit: BoxFit.fill,
-                    )),
-              ),
-              SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  child: Image.asset("assest/post.png"))
-            ],
-          ),
-        )
       ],
     );
   }

@@ -1,5 +1,7 @@
+import 'package:dekhlo/utils/components/textstyle.dart';
 import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Buttons {
   static Padding longButton(
@@ -80,14 +82,13 @@ class Buttons {
     );
   }
 
- static GestureDetector veryShortButton(
-  {required Color color,
+  static GestureDetector veryShortButton(
+      {required Color color,
       required BuildContext context,
       required VoidCallback onPressedCallback,
       required String buttonText,
-      required Color textColor}
- ){
-  return GestureDetector(
+      required Color textColor}) {
+    return GestureDetector(
       onTap: onPressedCallback,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.127,
@@ -108,8 +109,68 @@ class Buttons {
         ),
       ),
     );
- }
+  }
 
+  static Padding smallCallButton() {
+    return Padding(
+        padding: EdgeInsets.only(right: 7.w),
+        child: SizedBox(
+          height: 24.h,
+          width: 38.w,
+          child: TextButton(
+              style: ButtonStyle(
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                          4.0.r), // Adjust radius as needed
+                    ),
+                  ),
+                  side: MaterialStateProperty.all(
+                      BorderSide(color: Color(0xffFC8019))),
+                  foregroundColor: MaterialStatePropertyAll(Color(0xffFC8019))),
+              onPressed: () {},
+              child: Text(
+                "call",
+                style: TextStyles.openSans(
+                    fontWeight: FontWeight.w600, fontSize: 11.5.sp),
+              )),
+        ));
+  }
 
+  static Padding smallDealDoneButton() {
+    return Padding(
+        padding: EdgeInsets.only(right: 7.w),
+        child: SizedBox(
+          height: 34.h,
+          width: 55.w,
+          child: TextButton(
+              style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Color(0xffFC8019)),
+                  foregroundColor:
+                      MaterialStatePropertyAll(Color(0xffFFFFFFF))),
+              onPressed: () {},
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(6.h, 0.h, 0.h, 0.h),
+                  child: Text(
+                    "Deal Done",
+                    style: TextStyles.openSans(
+                        fontWeight: FontWeight.w600, fontSize: 11.sp),
+                  ),
+                ),
+              )),
+        ));
+  }
 
+  static coustoumTextButton({required VoidCallback onPressedCallback}) {
+    return TextButton(
+        onPressed: () {},
+        child: Text(
+          "Clear",
+          style: TextStyles.openSans(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: Color(0xff4A4A4A)),
+        ));
+  }
 }

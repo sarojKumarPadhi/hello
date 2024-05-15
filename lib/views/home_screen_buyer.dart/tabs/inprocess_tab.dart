@@ -16,7 +16,7 @@ class InProcessTab extends StatelessWidget {
           child: ListView.builder(itemBuilder: (context, index) {
             return Padding(
               padding: EdgeInsets.all(10.0.h),
-              child: InprocessTile(),
+              child: const InprocessTile(),
             );
           }),
         ),

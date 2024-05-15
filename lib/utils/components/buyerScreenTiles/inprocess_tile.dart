@@ -1,12 +1,12 @@
-import 'dart:ffi';
-
+import 'package:dekhlo/controllers/inprocessController.dart';
+import 'package:dekhlo/utils/components/buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../controllers/expandController.dart';
 import '../../size/global_size/global_size.dart';
+import '../bottomSheets/sort.dart';
 import '../dialog_boxs/coursal_dialog.dart';
 import '../textstyle.dart';
 
@@ -16,7 +16,9 @@ class InprocessTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ExpandController expandController = Get.put(ExpandController());
-    RxList selectedIndexList = [].obs;
+    final InProcessController inProcessController =
+        Get.put(InProcessController());
+
     String text =
         "Hi, I want a keyboard which is wireless. Looking for Need 5 of them. Please get back as soon as possible if it available in your store";
     return SizedBox(child: Obx(() {
@@ -226,125 +228,74 @@ class InprocessTile extends StatelessWidget {
                                         Padding(
                                           padding: EdgeInsets.only(left: 11.w),
                                           child: Text(
-                                            "Sellers Requests (03)",
+                                            "Requests (03)",
                                             style: TextStyles.openSans(
                                               fontWeight: FontWeight.w600,
                                               fontSize: 11.5.sp,
                                             ),
                                           ),
                                         ),
-                                        Padding(
-                                          padding: EdgeInsets.symmetric(
-                                              horizontal: 8.w),
-                                          child: Image.asset(
-                                              "assest/hamburger.png"),
-                                        ),
-                                        Text(
-                                          "Sort",
-                                          style: TextStyles.openSans(
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: 12.sp,
-                                              color: const Color(0xffFC8019)),
-                                        )
+                                        expandController.isExpanded.value
+                                            ? InkWell(
+                                                onTap: () {
+                                                  expandController
+                                                          .isExpanded.value =
+                                                      !expandController
+                                                          .isExpanded.value;
+                                                },
+                                                child: Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 4.w),
+                                                  child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 4.sp),
+                                                    child: Container(
+                                                        decoration:
+                                                            const BoxDecoration(
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                                color: Color(
+                                                                    0xffFC8019)),
+                                                        child: Icon(
+                                                          Icons.expand_more,
+                                                          size: 15.sp,
+                                                          color: Colors.white,
+                                                        )),
+                                                  ),
+                                                ),
+                                              )
+                                            : SizedBox(),
                                       ],
                                     ),
-                                    expandController.isExpanded.value
-                                        ? InkWell(
-                                            onTap: () {
-                                              expandController
-                                                      .isExpanded.value =
-                                                  !expandController
-                                                      .isExpanded.value;
-                                            },
-                                            child: Padding(
-                                              padding:
-                                                  EdgeInsets.only(right: 6.w),
-                                              child: Row(
-                                                children: [
-                                                  Text(
-                                                    "View All",
-                                                    style: GoogleFonts
-                                                        .hankenGrotesk(
-                                                      color: const Color(
-                                                          0xffFC8019),
-                                                      fontSize: 14.sp,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      decoration: TextDecoration
-                                                          .underline, // Add underline decoration
-                                                      decorationThickness: 2.w,
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: 4.sp),
-                                                    child: Container(
-                                                        decoration:
-                                                            const BoxDecoration(
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                                color: Color(
-                                                                    0xffFC8019)),
-                                                        child: Icon(
-                                                          Icons.expand_more,
-                                                          size: 15.sp,
-                                                          color: Colors.white,
-                                                        )),
-                                                  )
-                                                ],
-                                              ),
+                                    InkWell(
+                                      onTap: () {
+                                        sortDialogBox(context: context);
+                                      },
+                                      child: Padding(
+                                        padding: EdgeInsets.only(right: 10.w),
+                                        child: Row(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  right: 5),
+                                              child: Image.asset(
+                                                  "assest/hamburger.png"),
                                             ),
-                                          )
-                                        : InkWell(
-                                            onTap: () {
-                                              expandController
-                                                      .isExpanded.value =
-                                                  !expandController
-                                                      .isExpanded.value;
-                                            },
-                                            child: Padding(
-                                              padding:
-                                                  EdgeInsets.only(right: 6.w),
-                                              child: Row(
-                                                children: [
-                                                  Text(
-                                                    "View All",
-                                                    style: GoogleFonts
-                                                        .hankenGrotesk(
-                                                      color: const Color(
-                                                          0xffFC8019),
-                                                      fontSize: 14.sp,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      decoration: TextDecoration
-                                                          .underline, // Add underline decoration
-                                                      decorationThickness: 2.w,
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: 4.sp),
-                                                    child: Container(
-                                                        decoration:
-                                                            const BoxDecoration(
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                                color: Color(
-                                                                    0xffFC8019)),
-                                                        child: Icon(
-                                                          Icons.expand_more,
-                                                          size: 15.sp,
-                                                          color: Colors.white,
-                                                        )),
-                                                  )
-                                                ],
-                                              ),
-                                            ),
-                                          )
+                                            Text(
+                                              "Sort by Distance/Price",
+                                              style: TextStyles.openSans(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 12.sp,
+                                                  color:
+                                                      const Color(0xffFC8019)),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
-                              // to do hello world
                               Expanded(
                                 child: ListView.builder(
                                     itemBuilder: (context, index) {
@@ -367,14 +318,8 @@ class InprocessTile extends StatelessWidget {
                                             children: [
                                               Padding(
                                                 padding: EdgeInsets.symmetric(
-                                                    horizontal: GlobalSizes
-                                                            .getDeviceWidth(
-                                                                context) *
-                                                        0.02,
-                                                    vertical: GlobalSizes
-                                                            .getDeviceHeight(
-                                                                context) *
-                                                        0.006),
+                                                    horizontal: 3.w,
+                                                    vertical: 3.h),
                                                 child: Row(
                                                   children: [
                                                     Image.asset(
@@ -572,28 +517,73 @@ class InprocessTile extends StatelessWidget {
                                                       ],
                                                     ),
                                                     SizedBox(
-                                                      width: 40.w,
+                                                      width: 10.w,
                                                     ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                          right: 10.w),
-                                                      child: Container(
-                                                        decoration:
-                                                            const BoxDecoration(
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                                color: Color(
-                                                                    0xffCEEDE3)),
-                                                        child: const Icon(
-                                                          Icons.check,
-                                                          size: 15,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 5.w,
-                                                    ),
-                                                    Container(
+                                                    Obx(() {
+                                                      return InkWell(
+                                                        child: inProcessController
+                                                                .index
+                                                                .contains(index)
+                                                            ? Buttons
+                                                                .smallCallButton()
+                                                            : InkWell(
+                                                                onTap: () {
+                                                                  if (inProcessController
+                                                                      .index
+                                                                      .contains(
+                                                                          index)) {
+                                                                    inProcessController
+                                                                        .index
+                                                                        .remove(
+                                                                            index);
+                                                                  } else {
+                                                                    inProcessController
+                                                                        .index
+                                                                        .add(
+                                                                            index);
+                                                                  }
+                                                                },
+                                                                child: Row(
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: EdgeInsets.fromLTRB(
+                                                                          62.w,
+                                                                          0.h,
+                                                                          10.h,
+                                                                          0.h),
+                                                                      child:
+                                                                          Container(
+                                                                        decoration: const BoxDecoration(
+                                                                            shape:
+                                                                                BoxShape.circle,
+                                                                            color: Color(0xffCEEDE3)),
+                                                                        child:
+                                                                            const Icon(
+                                                                          Icons
+                                                                              .check,
+                                                                          size:
+                                                                              15,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                      );
+                                                    }),
+                                                  ],
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                          Obx(() {
+                                            return inProcessController.index
+                                                    .contains(index)
+                                                ? Buttons.smallDealDoneButton()
+                                                : Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: 5.h),
+                                                    child: Container(
                                                       decoration:
                                                           const BoxDecoration(
                                                               shape: BoxShape
@@ -606,12 +596,9 @@ class InprocessTile extends StatelessWidget {
                                                         color:
                                                             Color(0xffBC0000),
                                                       ),
-                                                    )
-                                                  ],
-                                                ),
-                                              )
-                                            ],
-                                          ),
+                                                    ),
+                                                  );
+                                          })
                                         ],
                                       ),
                                     ),
@@ -621,99 +608,121 @@ class InprocessTile extends StatelessWidget {
                             ],
                           )
                         : Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Padding(
-                                padding: EdgeInsets.only(left: 11.w),
-                                child: Text(
-                                  "Sellers Requests (03)",
-                                  style: TextStyles.openSans(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 12.sp,
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 11.w),
+                                    child: Text(
+                                      "Requests (03)",
+                                      style: TextStyles.openSans(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12.sp,
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                  expandController.isExpanded.value
+                                      ? Row(
+                                          children: [
+                                            InkWell(
+                                              onTap: () {
+                                                expandController
+                                                        .isExpanded.value =
+                                                    !expandController
+                                                        .isExpanded.value;
+                                                inProcessController.index
+                                                    .clear();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    EdgeInsets.only(right: 6.w),
+                                                child: Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 4.sp),
+                                                  child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                              color: Color(
+                                                                  0xffFC8019)),
+                                                      child: Icon(
+                                                        Icons.expand_less,
+                                                        size: 15.sp,
+                                                        color: Colors.white,
+                                                      )),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      : InkWell(
+                                          onTap: () {
+                                            expandController.isExpanded.value =
+                                                !expandController
+                                                    .isExpanded.value;
+                                            inProcessController.index.clear();
+                                          },
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(right: 6.w),
+                                                child: Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 4.sp),
+                                                  child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                              color: Color(
+                                                                  0xffFC8019)),
+                                                      child: Icon(
+                                                        Icons.expand_less,
+                                                        size: 15.sp,
+                                                        color: Colors.white,
+                                                      )),
+                                                ),
+                                              ),
+                                              InkWell(
+                                                onTap: () {
+                                                  sortDialogBox(
+                                                      context: context);
+                                                },
+                                                child: Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 30.w),
+                                                  child: Row(
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(
+                                                                right: 10),
+                                                        child: Image.asset(
+                                                            "assest/hamburger.png"),
+                                                      ),
+                                                      Text(
+                                                        "Sort by Distance/Price",
+                                                        style: TextStyles.openSans(
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            fontSize: 12.sp,
+                                                            color: const Color(
+                                                                0xffFC8019)),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                ],
                               ),
-                              expandController.isExpanded.value
-                                  ? InkWell(
-                                      onTap: () {
-                                        expandController.isExpanded.value =
-                                            !expandController.isExpanded.value;
-                                      },
-                                      child: Padding(
-                                        padding: EdgeInsets.only(right: 6.w),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              "View All",
-                                              style: GoogleFonts.hankenGrotesk(
-                                                color: const Color(0xffFC8019),
-                                                fontSize: 14.sp,
-                                                fontWeight: FontWeight.w600,
-                                                decoration: TextDecoration
-                                                    .underline, // Add underline decoration
-                                                decorationThickness: 2..w,
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 4.sp),
-                                              child: Container(
-                                                  decoration:
-                                                      const BoxDecoration(
-                                                          shape:
-                                                              BoxShape.circle,
-                                                          color: Color(
-                                                              0xffFC8019)),
-                                                  child: Icon(
-                                                    Icons.expand_less,
-                                                    size: 15.sp,
-                                                    color: Colors.white,
-                                                  )),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  : InkWell(
-                                      onTap: () {
-                                        expandController.isExpanded.value =
-                                            !expandController.isExpanded.value;
-                                      },
-                                      child: Padding(
-                                        padding: EdgeInsets.only(right: 6.w),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              "View All",
-                                              style: GoogleFonts.hankenGrotesk(
-                                                color: const Color(0xffFC8019),
-                                                fontSize: 14.sp,
-                                                fontWeight: FontWeight.w600,
-                                                decoration: TextDecoration
-                                                    .underline, // Add underline decoration
-                                                decorationThickness: 2..w,
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 4.sp),
-                                              child: Container(
-                                                  decoration:
-                                                      const BoxDecoration(
-                                                          shape:
-                                                              BoxShape.circle,
-                                                          color: Color(
-                                                              0xffFC8019)),
-                                                  child: Icon(
-                                                    Icons.expand_less,
-                                                    size: 15.sp,
-                                                    color: Colors.white,
-                                                  )),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    )
                             ],
                           ),
                   ),

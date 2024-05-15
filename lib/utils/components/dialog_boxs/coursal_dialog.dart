@@ -1,10 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dekhlo/utils/size/global_size/global_size.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class CarouselDialog extends StatefulWidget {
-  CarouselDialog({Key? key}) : super(key: key);
+  const CarouselDialog({super.key});
 
   @override
   _CarouselDialogState createState() => _CarouselDialogState();
@@ -48,10 +51,12 @@ class _CarouselDialogState extends State<CarouselDialog> {
                   items: images.map((String url) {
                     return Builder(
                       builder: (BuildContext context) {
-                        return Container(
+                        return SizedBox(
                           width: GlobalSizes.getDeviceWidth(context) * 0.75,
                           child: Padding(
-                            padding: EdgeInsets.only(top: GlobalSizes.getDeviceHeight(context) * 0.007),
+                            padding: EdgeInsets.only(
+                                top: GlobalSizes.getDeviceHeight(context) *
+                                    0.007),
                             child: Image.asset(
                               url,
                               fit: BoxFit.cover,
@@ -63,28 +68,37 @@ class _CarouselDialogState extends State<CarouselDialog> {
                   }).toList(),
                 ),
                 Positioned(
-                  top: 10,
-                  right: 15,
-                  child:Container(
-                    width: 30, // Adjust width as needed
-                    height: 30, // Adjust height as needed
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
+                  top: 10.h,
+                  right: 10.h,
+                  child: InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Container(
+                      // Adjust height as needed
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      child: const Icon(
+                        Icons.close,
+                        color: Color(0xffFC8019),
+                      ),
                     ),
-                    child: const Icon(Icons.close,color: Color(0xffFC8019),),
-                ),
+                  ),
                 )
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: images.asMap().entries.map((MapEntry<int, String> entry) {
+              children:
+                  images.asMap().entries.map((MapEntry<int, String> entry) {
                 int index = entry.key;
                 return Container(
                   width: GlobalSizes.getDeviceWidth(context) * 0.01,
                   height: GlobalSizes.getDeviceHeight(context) * 0.01,
-                  margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                  margin: const EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 2.0),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: index == _currentIndex ? Colors.orange : Colors.grey,

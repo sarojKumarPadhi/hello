@@ -1,8 +1,13 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../controllers/expandController.dart';
+import '../../size/global_size/global_size.dart';
+import '../dialog_boxs/coursal_dialog.dart';
 import '../textstyle.dart';
 
 class InprocessTile extends StatelessWidget {
@@ -11,13 +16,14 @@ class InprocessTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ExpandController expandController = Get.put(ExpandController());
+    RxList selectedIndexList = [].obs;
     String text =
         "Hi, I want a keyboard which is wireless. Looking for Need 5 of them. Please get back as soon as possible if it available in your store";
     return SizedBox(child: Obx(() {
       return Container(
           width: double.infinity, // Adjust the width as needed
           height: expandController.isExpanded.value
-              ? 365.h
+              ? 380.h
               : 200.h, // Adjust the height as needed
           decoration: BoxDecoration(
             color: Colors.white,
@@ -200,30 +206,47 @@ class InprocessTile extends StatelessWidget {
                 return Padding(
                   padding: EdgeInsets.fromLTRB(20.w, 6.h, 14.w, 6.h),
                   child: Container(
-                    height: expandController.isExpanded.value ? 200.h : 33.h,
+                    height: expandController.isExpanded.value ? 210.h : 33.h,
                     width: 309.h,
                     decoration: BoxDecoration(
-                        border: Border.all(color: Color(0xffFFC18E)),
+                        border: Border.all(color: const Color(0xffFFC18E)),
                         borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                        color: Color(0xffFFF5ED)),
+                        color: const Color(0xffFFF5ED)),
                     child: expandController.isExpanded.value
                         ? Column(
                             children: [
                               Padding(
-                                padding: EdgeInsets.fromLTRB(0, 10.h, 0, 20.h),
+                                padding: EdgeInsets.fromLTRB(0, 10.h, 0, 5.h),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(left: 11.w),
-                                      child: Text(
-                                        "Sellers Requests (03)",
-                                        style: TextStyles.openSans(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 11.5.sp,
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 11.w),
+                                          child: Text(
+                                            "Sellers Requests (03)",
+                                            style: TextStyles.openSans(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 11.5.sp,
+                                            ),
+                                          ),
                                         ),
-                                      ),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 8.w),
+                                          child: Image.asset(
+                                              "assest/hamburger.png"),
+                                        ),
+                                        Text(
+                                          "Sort",
+                                          style: TextStyles.openSans(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 12.sp,
+                                              color: const Color(0xffFC8019)),
+                                        )
+                                      ],
                                     ),
                                     expandController.isExpanded.value
                                         ? InkWell(
@@ -295,7 +318,7 @@ class InprocessTile extends StatelessWidget {
                                                           FontWeight.w600,
                                                       decoration: TextDecoration
                                                           .underline, // Add underline decoration
-                                                      decorationThickness: 2..w,
+                                                      decorationThickness: 2.w,
                                                     ),
                                                   ),
                                                   Padding(
@@ -322,6 +345,279 @@ class InprocessTile extends StatelessWidget {
                                 ),
                               ),
                               // to do hello world
+                              Expanded(
+                                child: ListView.builder(
+                                    itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: EdgeInsets.fromLTRB(
+                                        10.w, 0.h, 8.w, 5.h),
+                                    child: Container(
+                                      height: 55.h,
+                                      width: 400.w,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xffFFFFFF),
+                                        borderRadius: BorderRadius.circular(4.0
+                                            .r), // Adjust the value as needed
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: GlobalSizes
+                                                            .getDeviceWidth(
+                                                                context) *
+                                                        0.02,
+                                                    vertical: GlobalSizes
+                                                            .getDeviceHeight(
+                                                                context) *
+                                                        0.006),
+                                                child: Row(
+                                                  children: [
+                                                    Image.asset(
+                                                        "assest/bookImage.png"),
+                                                    Text(
+                                                      "The Big Bookstore",
+                                                      style:
+                                                          TextStyles.openSans(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              fontSize: 10),
+                                                    ),
+                                                    SizedBox(
+                                                      width: GlobalSizes
+                                                              .getDeviceWidth(
+                                                                  context) *
+                                                          0.03,
+                                                    ),
+                                                    Text(
+                                                      "4.7 (5)",
+                                                      style:
+                                                          TextStyles.openSans(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400,
+                                                              fontSize: 9),
+                                                    ),
+                                                    SizedBox(
+                                                      width: GlobalSizes
+                                                              .getDeviceWidth(
+                                                                  context) *
+                                                          0.02,
+                                                    ),
+                                                    Image.asset(
+                                                        "assest/google_map_icon.png"),
+                                                    SizedBox(
+                                                      width: GlobalSizes
+                                                              .getDeviceWidth(
+                                                                  context) *
+                                                          0.01,
+                                                    ),
+                                                    Text(
+                                                      "5 KM away",
+                                                      style:
+                                                          GoogleFonts.openSans(
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        fontSize: 10,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .underline,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.only(
+                                                    left: GlobalSizes
+                                                            .getDeviceWidth(
+                                                                context) *
+                                                        0.02),
+                                                child: Row(
+                                                  children: [
+                                                    Column(
+                                                      children: [
+                                                        Text("₹ 1200",
+                                                            style: TextStyles.openSans(
+                                                                fontSize: 10,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                color: const Color(
+                                                                    0xffFC8019))),
+                                                        Text("Quotation",
+                                                            style: TextStyles.openSans(
+                                                                fontSize: 8,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400,
+                                                                color: const Color(
+                                                                    0xfff4a4a4a))),
+                                                      ],
+                                                    ),
+                                                    SizedBox(
+                                                      width: GlobalSizes
+                                                              .getDeviceWidth(
+                                                                  context) *
+                                                          0.01,
+                                                    ),
+                                                    Image.asset(
+                                                      "assest/bigLine.png",
+                                                      height: GlobalSizes
+                                                              .getDeviceHeight(
+                                                                  context) *
+                                                          0.02,
+                                                      width: GlobalSizes
+                                                              .getDeviceWidth(
+                                                                  context) *
+                                                          0.03,
+                                                    ),
+                                                    Column(
+                                                      children: [
+                                                        Text("Similar",
+                                                            style: TextStyles.openSans(
+                                                                fontSize: 10,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                color: const Color(
+                                                                    0xffFC8019))),
+                                                        Text("Product Type",
+                                                            style: TextStyles.openSans(
+                                                                fontSize: 8,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400,
+                                                                color: const Color(
+                                                                    0xfff4a4a4a))),
+                                                      ],
+                                                    ),
+                                                    SizedBox(
+                                                      width: GlobalSizes
+                                                              .getDeviceWidth(
+                                                                  context) *
+                                                          0.01,
+                                                    ),
+                                                    Image.asset(
+                                                      "assest/bigLine.png",
+                                                      height: GlobalSizes
+                                                              .getDeviceHeight(
+                                                                  context) *
+                                                          0.02,
+                                                      width: GlobalSizes
+                                                              .getDeviceWidth(
+                                                                  context) *
+                                                          0.03,
+                                                    ),
+                                                    Column(
+                                                      children: [
+                                                        Row(
+                                                          children: [
+                                                            Padding(
+                                                              padding: EdgeInsets.only(
+                                                                  right: GlobalSizes
+                                                                          .getDeviceWidth(
+                                                                              context) *
+                                                                      0.01),
+                                                              child: SizedBox(
+                                                                  height: GlobalSizes
+                                                                          .getDeviceHeight(
+                                                                              context) *
+                                                                      0.015,
+                                                                  child: Image
+                                                                      .asset(
+                                                                    "assest/image_view.png",
+                                                                    fit: BoxFit
+                                                                        .fitHeight,
+                                                                  )),
+                                                            ),
+                                                            InkWell(
+                                                              onTap: () {
+                                                                showDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (BuildContext
+                                                                          context) {
+                                                                    return const CarouselDialog();
+                                                                  },
+                                                                );
+                                                              },
+                                                              child: Text(
+                                                                  "View",
+                                                                  style: TextStyles.openSans(
+                                                                      fontSize:
+                                                                          10,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      color: const Color(
+                                                                          0xffFC8019))),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Text("Product Image",
+                                                            style: TextStyles.openSans(
+                                                                fontSize: 8,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400,
+                                                                color: const Color(
+                                                                    0xfff4a4a4a))),
+                                                      ],
+                                                    ),
+                                                    SizedBox(
+                                                      width: 40.w,
+                                                    ),
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          right: 10.w),
+                                                      child: Container(
+                                                        decoration:
+                                                            const BoxDecoration(
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                                color: Color(
+                                                                    0xffCEEDE3)),
+                                                        child: const Icon(
+                                                          Icons.check,
+                                                          size: 15,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(
+                                                      width: 5.w,
+                                                    ),
+                                                    Container(
+                                                      decoration:
+                                                          const BoxDecoration(
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                              color: Color(
+                                                                  0xffFFEAEC)),
+                                                      child: const Icon(
+                                                        Icons.close,
+                                                        size: 15,
+                                                        color:
+                                                            Color(0xffBC0000),
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                }),
+                              )
                             ],
                           )
                         : Row(

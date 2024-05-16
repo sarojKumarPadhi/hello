@@ -25,8 +25,8 @@ class InprocessTile extends StatelessWidget {
       return Container(
           width: double.infinity, // Adjust the width as needed
           height: expandController.isExpanded.value
-              ? 380.h
-              : 200.h, // Adjust the height as needed
+              ? 386.h
+              : 225.h, // Adjust the height as needed
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(
@@ -34,8 +34,8 @@ class InprocessTile extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.2),
-                spreadRadius: 2,
-                blurRadius: 5,
+                spreadRadius: 2.r,
+                blurRadius: 5.r,
                 offset: const Offset(0, 3), // changes position of shadow
               ),
             ],
@@ -47,7 +47,7 @@ class InprocessTile extends StatelessWidget {
                 height: 10.h,
               ),
               Padding(
-                padding: EdgeInsets.only(left: 17.w),
+                padding: EdgeInsets.only(left: 18.w),
                 child: Text(
                   "Requirement ID #16526545",
                   style: TextStyles.openSans(
@@ -86,7 +86,7 @@ class InprocessTile extends StatelessWidget {
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.only(right: 12.h),
+                      padding: EdgeInsets.only(right: 20.h),
                       child: Text(
                         "05 Feb ‘24",
                         style: TextStyles.openSans(
@@ -99,81 +99,84 @@ class InprocessTile extends StatelessWidget {
               SizedBox(
                 height: 3.h,
               ),
-              Row(
-                children: [
-                  SizedBox(
-                      width: 79.h,
-                      height: 60.h,
-                      child: Image.asset("assest/sellitems.png")),
-                  Column(
-                    children: [
-                      Text(
-                        "#12638",
-                        style: TextStyles.openSans(
-                            fontWeight: FontWeight.w600, fontSize: 12.sp),
-                      ),
-                      Text(
-                        "Model No",
-                        style: TextStyles.openSans(
-                            fontWeight: FontWeight.w400, fontSize: 12.sp),
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.h),
-                    child: Image.asset("assest/bigLine.png"),
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        "02",
-                        style: TextStyles.openSans(
-                            fontWeight: FontWeight.w600, fontSize: 12.sp),
-                      ),
-                      Text(
-                        "Qty",
-                        style: TextStyles.openSans(
-                            fontWeight: FontWeight.w400, fontSize: 12.sp),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 9.h),
-                    child: Image.asset("assest/bigLine.png"),
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        "{value}",
-                        style: TextStyles.openSans(
-                            fontWeight: FontWeight.w600, fontSize: 12.sp),
-                      ),
-                      Text(
-                        "10",
-                        style: TextStyles.openSans(
-                            fontWeight: FontWeight.w400, fontSize: 12.sp),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 9.h),
-                    child: Image.asset("assest/bigLine.png"),
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        "{value}",
-                        style: TextStyles.openSans(
-                            fontWeight: FontWeight.w600, fontSize: 12.sp),
-                      ),
-                      Text(
-                        "Units",
-                        style: TextStyles.openSans(
-                            fontWeight: FontWeight.w400, fontSize: 12.sp),
-                      ),
-                    ],
-                  ),
-                ],
+              Padding(
+                padding: EdgeInsets.only(left: 10.w),
+                child: Row(
+                  children: [
+                    SizedBox(
+                        width: 90.w,
+                        height: 60.h,
+                        child: Image.asset("assest/sellitems.png")),
+                    Column(
+                      children: [
+                        Text(
+                          "#12638",
+                          style: TextStyles.openSans(
+                              fontWeight: FontWeight.w600, fontSize: 12.sp),
+                        ),
+                        Text(
+                          "Model No",
+                          style: TextStyles.openSans(
+                              fontWeight: FontWeight.w400, fontSize: 12.sp),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10.h),
+                      child: Image.asset("assest/bigLine.png"),
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "02",
+                          style: TextStyles.openSans(
+                              fontWeight: FontWeight.w600, fontSize: 12.sp),
+                        ),
+                        Text(
+                          "Qty",
+                          style: TextStyles.openSans(
+                              fontWeight: FontWeight.w400, fontSize: 12.sp),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 9.h),
+                      child: Image.asset("assest/bigLine.png"),
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "{value}",
+                          style: TextStyles.openSans(
+                              fontWeight: FontWeight.w600, fontSize: 12.sp),
+                        ),
+                        Text(
+                          "10",
+                          style: TextStyles.openSans(
+                              fontWeight: FontWeight.w400, fontSize: 12.sp),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 9.h),
+                      child: Image.asset("assest/bigLine.png"),
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "{value}",
+                          style: TextStyles.openSans(
+                              fontWeight: FontWeight.w600, fontSize: 12.sp),
+                        ),
+                        Text(
+                          "Units",
+                          style: TextStyles.openSans(
+                              fontWeight: FontWeight.w400, fontSize: 12.sp),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -264,7 +267,7 @@ class InprocessTile extends StatelessWidget {
                                                   ),
                                                 ),
                                               )
-                                            : SizedBox(),
+                                            : const SizedBox(),
                                       ],
                                     ),
                                     InkWell(
@@ -396,12 +399,6 @@ class InprocessTile extends StatelessWidget {
                                                                     0xfff4a4a4a))),
                                                       ],
                                                     ),
-                                                    SizedBox(
-                                                      width: GlobalSizes
-                                                              .getDeviceWidth(
-                                                                  context) *
-                                                          0.01,
-                                                    ),
                                                     Image.asset(
                                                       "assest/bigLine.png",
                                                       height: GlobalSizes
@@ -432,12 +429,6 @@ class InprocessTile extends StatelessWidget {
                                                                 color: const Color(
                                                                     0xfff4a4a4a))),
                                                       ],
-                                                    ),
-                                                    SizedBox(
-                                                      width: GlobalSizes
-                                                              .getDeviceWidth(
-                                                                  context) *
-                                                          0.01,
                                                     ),
                                                     Image.asset(
                                                       "assest/bigLine.png",
@@ -496,7 +487,7 @@ class InprocessTile extends StatelessWidget {
                                                         ),
                                                         Text("Product Image",
                                                             style: TextStyles.openSans(
-                                                                fontSize: 10,
+                                                                fontSize: 10.sp,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w400,
@@ -505,7 +496,7 @@ class InprocessTile extends StatelessWidget {
                                                       ],
                                                     ),
                                                     SizedBox(
-                                                      width: 10.w,
+                                                      width: 6.w,
                                                     ),
                                                     Obx(() {
                                                       return InkWell(
@@ -535,7 +526,7 @@ class InprocessTile extends StatelessWidget {
                                                                   children: [
                                                                     Padding(
                                                                       padding: EdgeInsets.fromLTRB(
-                                                                          40.w,
+                                                                          20.w,
                                                                           0.h,
                                                                           10.h,
                                                                           0.h),
@@ -546,11 +537,11 @@ class InprocessTile extends StatelessWidget {
                                                                                 BoxShape.circle,
                                                                             color: Color(0xffCEEDE3)),
                                                                         child:
-                                                                            const Icon(
+                                                                            Icon(
                                                                           Icons
                                                                               .check,
                                                                           size:
-                                                                              15,
+                                                                              15.sp,
                                                                         ),
                                                                       ),
                                                                     ),
@@ -565,25 +556,18 @@ class InprocessTile extends StatelessWidget {
                                                               .contains(index)
                                                           ? Buttons
                                                               .smallDealDoneButton()
-                                                          : Padding(
-                                                              padding: EdgeInsets
-                                                                  .only(
-                                                                      top: 0.h),
-                                                              child: Center(
-                                                                child:
-                                                                    Container(
-                                                                  decoration: const BoxDecoration(
-                                                                      shape: BoxShape
-                                                                          .circle,
-                                                                      color: Color(
-                                                                          0xffFFEAEC)),
-                                                                  child:
-                                                                      const Icon(
-                                                                    Icons.close,
-                                                                    size: 15,
+                                                          : Center(
+                                                              child: Container(
+                                                                decoration: const BoxDecoration(
+                                                                    shape: BoxShape
+                                                                        .circle,
                                                                     color: Color(
-                                                                        0xffBC0000),
-                                                                  ),
+                                                                        0xffFFEAEC)),
+                                                                child: Icon(
+                                                                  Icons.close,
+                                                                  size: 15.sp,
+                                                                  color: const Color(
+                                                                      0xffBC0000),
                                                                 ),
                                                               ),
                                                             );
@@ -688,14 +672,13 @@ class InprocessTile extends StatelessWidget {
                                                 },
                                                 child: Padding(
                                                   padding: EdgeInsets.only(
-                                                      left: 30.w),
+                                                      left: 26.w),
                                                   child: Row(
                                                     children: [
                                                       Padding(
                                                         padding:
                                                             const EdgeInsets
-                                                                .only(
-                                                                right: 10),
+                                                                .only(right: 0),
                                                         child: Image.asset(
                                                             "assest/hamburger.png"),
                                                       ),

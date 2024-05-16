@@ -31,7 +31,7 @@ sortDialogBox({required context}) {
                   Text(
                     "Sort by Distance/Price",
                     style: TextStyles.openSans(
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w600,
                         color: const Color(0xff4A4A4A)),
                   )
@@ -52,7 +52,7 @@ sortDialogBox({required context}) {
                       fontSize: 16),
                 ),
                 leading: Radio(
-                  fillColor: MaterialStatePropertyAll(Color(0xffFC8019)),
+                  fillColor: const MaterialStatePropertyAll(Color(0xffFC8019)),
                   value: 1,
                   groupValue: dialogBoxController.selectedValue.value,
                   onChanged: (value) {
@@ -77,13 +77,15 @@ sortDialogBox({required context}) {
                   },
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Buttons.coustoumTextButton(onPressedCallback: () {}),
                   Buttons.shortButton(
-                      onPressedCallback: () {},
+                      onPressedCallback: () {
+                        Get.back();
+                      },
                       context: context,
                       buttonText: 'Apply',
                       textColor: Colors.white,

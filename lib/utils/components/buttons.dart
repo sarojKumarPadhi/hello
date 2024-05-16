@@ -2,6 +2,7 @@ import 'package:dekhlo/utils/components/textstyle.dart';
 import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class Buttons {
   static Padding longButton(
@@ -113,9 +114,9 @@ class Buttons {
 
   static Padding smallCallButton() {
     return Padding(
-        padding: EdgeInsets.only(right: 7.w),
+        padding: EdgeInsets.only(right: 2.w),
         child: SizedBox(
-          height: 24.h,
+          height: 28.h,
           width: 38.w,
           child: TextButton(
               style: ButtonStyle(
@@ -126,8 +127,9 @@ class Buttons {
                     ),
                   ),
                   side: MaterialStateProperty.all(
-                      BorderSide(color: Color(0xffFC8019))),
-                  foregroundColor: MaterialStatePropertyAll(Color(0xffFC8019))),
+                      const BorderSide(color: Color(0xffFC8019))),
+                  foregroundColor:
+                      const MaterialStatePropertyAll(Color(0xffFC8019))),
               onPressed: () {},
               child: Text(
                 "call",
@@ -137,40 +139,43 @@ class Buttons {
         ));
   }
 
-  static Padding smallDealDoneButton() {
-    return Padding(
-        padding: EdgeInsets.only(right: 7.w),
-        child: SizedBox(
-          height: 33.h,
-          width: 33.w,
-          child: TextButton(
-              style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Color(0xffFC8019)),
-                  foregroundColor:
-                      MaterialStatePropertyAll(Color(0xffFFFFFFF))),
-              onPressed: () {},
-              child: Center(
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(6.h, 0.h, 0.h, 0.h),
-                  child: Text(
-                    "Deal Done",
-                    style: TextStyles.openSans(
-                        fontWeight: FontWeight.w600, fontSize: 11.sp),
-                  ),
+  static SizedBox smallDealDoneButton() {
+    return SizedBox(
+      height: 28.h,
+      width: 35.w,
+      child: TextButton(
+          style: ButtonStyle(
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(4.0.r), // Adjust radius as needed
                 ),
-              )),
-        ));
+              ),
+              side: MaterialStateProperty.all(
+                  const BorderSide(color: Color(0xffFC8019))),
+              backgroundColor:
+                  const MaterialStatePropertyAll(Color(0xffFC8019)),
+              foregroundColor: const MaterialStatePropertyAll(Colors.white)),
+          onPressed: () {},
+          child: Text(
+            "DD",
+            style: TextStyles.openSans(
+                fontWeight: FontWeight.w600, fontSize: 11.5.sp),
+          )),
+    );
   }
 
   static coustoumTextButton({required VoidCallback onPressedCallback}) {
     return TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.back();
+        },
         child: Text(
           "Clear",
           style: TextStyles.openSans(
               fontSize: 18,
               fontWeight: FontWeight.w600,
-              color: Color(0xff4A4A4A)),
+              color: const Color(0xff4A4A4A)),
         ));
   }
 }

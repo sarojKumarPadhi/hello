@@ -14,5 +14,18 @@ class TextStyles {
     );
   }
 
+  static TextStyle openSansUnderLine({
+    double? fontSize = 20,
+    FontWeight? fontWeight = FontWeight.w600,
+    Color? color,
+  }) {
+    return GoogleFonts.openSans(
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+      color: color,
+      decoration: TextDecoration.underline,
+    );
+  }
+
   // You can define other text styles similarly
 }

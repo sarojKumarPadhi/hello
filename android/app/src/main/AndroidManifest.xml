@@ -3,6 +3,8 @@
         android:label="dekhlo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+         <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBU2N28cd4igst3DzLh5d4-NQEEbQtytME"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

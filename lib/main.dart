@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'package:dekhlo/utils/routes/routes_controller.dart';
-import 'package:dekhlo/views/login.dart';
 
 import 'views/home_screen_buyer.dart/home_screenBuyer.dart';
 
@@ -29,6 +28,7 @@ class MyApp extends StatelessWidget {
         builder: DevicePreview.appBuilder,
         theme: ThemeData(
           useMaterial3: false,
+
           primaryColor: Colors.white, // Set primary color to white
           appBarTheme: const AppBarTheme(
             backgroundColor:

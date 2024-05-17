@@ -1,6 +1,7 @@
 import 'package:dekhlo/utils/routes/routes_names.dart';
 import 'package:dekhlo/views/home_screen_buyer.dart/home_screenBuyer.dart';
 import 'package:dekhlo/views/lang.dart';
+import 'package:dekhlo/views/locationPages/change_location.dart';
 import 'package:dekhlo/views/login.dart';
 import 'package:dekhlo/views/singUpPages/Signup_otp.dart';
 import 'package:dekhlo/views/singUpPages/Singup_phone.dart';
@@ -18,5 +19,6 @@ class AppPages {
     GetPage(name: RouteName.logInphoneScreen, page: () => const LogInPhone()),
     GetPage(name: RouteName.logInotpScreen, page: () => const LogINOTP()),
     GetPage(name: RouteName.homeBuyerScreen, page: () => const HomeBuyer()),
+    GetPage(name: RouteName.ChangeLocation, page: () => ChangeLocation())
   ];
 }

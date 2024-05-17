@@ -2,7 +2,7 @@ import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:dekhlo/views/home_screen_buyer.dart/tabs/new_tab.dart';
 import 'package:dekhlo/views/home_screen_buyer.dart/tabs/rejected_tab.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../utils/components/coustoum_serch_bar.dart';
 import '../../utils/components/textstyle.dart';
@@ -56,7 +56,7 @@ class HomeBuyer extends StatelessWidget {
                       width: GlobalSizes.getDeviceHeight(context) * 0.015,
                     ),
                     SizedBox(
-                      height: GlobalSizes.getDeviceHeight(context) * 0.038,
+                      height: GlobalSizes.getDeviceHeight(context) * 0.036,
                       child: Image.asset(
                         "assest/sellerShop.png",
                         fit: BoxFit.fitHeight,
@@ -129,21 +129,22 @@ class HomeBuyer extends StatelessWidget {
                   ],
                 ),
               ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: GlobalSizes.getDeviceWidth(context) * 0.5,
-                    child: SizedBox(
-                        width: 110,
-                        child: Image.asset(
-                          "assest/buying.png",
-                          fit: BoxFit.fill,
-                        )),
-                  ),
-                  SizedBox(
+              SizedBox(
+                height: 50.h,
+                child: Row(
+                  children: [
+                    SizedBox(
                       width: MediaQuery.of(context).size.width * 0.5,
-                      child: Image.asset("assest/post.png"))
-                ],
+                      child: Image.asset(
+                        "assest/buying.png",
+                        fit: BoxFit.fitWidth,
+                      ),
+                    ),
+                    SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        child: Image.asset("assest/post.png"))
+                  ],
+                ),
               )
             ],
           ),

@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../controllers/expandController.dart';
+import '../../../controllers/sortDialogBoxController.dart';
 import '../../size/global_size/global_size.dart';
 import '../bottomSheets/sort.dart';
 import '../dialog_boxs/coursal_dialog.dart';
@@ -18,7 +19,8 @@ class InprocessTile extends StatelessWidget {
     final ExpandController expandController = Get.put(ExpandController());
     final InProcessController inProcessController =
         Get.put(InProcessController());
-
+    final DialogBoxController dialogBoxController =
+        Get.put(DialogBoxController());
     String text =
         "Hi, I want a keyboard which is wireless. Looking for Need 5 of them. Please get back as soon as possible if it available in your store";
     return SizedBox(child: Obx(() {
@@ -272,6 +274,8 @@ class InprocessTile extends StatelessWidget {
                                     ),
                                     InkWell(
                                       onTap: () {
+                                        dialogBoxController.selectedTab.value =
+                                            0;
                                         sortDialogBox(context: context);
                                       },
                                       child: Padding(
@@ -307,7 +311,7 @@ class InprocessTile extends StatelessWidget {
                                         10.w, 0.h, 8.w, 5.h),
                                     child: Container(
                                       height: 55.h,
-                                      width: 400.w,
+                                      width: double.infinity,
                                       decoration: BoxDecoration(
                                         color: const Color(0xffFFFFFF),
                                         borderRadius: BorderRadius.circular(4.0
@@ -667,6 +671,8 @@ class InprocessTile extends StatelessWidget {
                                               ),
                                               InkWell(
                                                 onTap: () {
+                                                  dialogBoxController
+                                                      .selectedTab.value = 0;
                                                   sortDialogBox(
                                                       context: context);
                                                 },

@@ -167,9 +167,7 @@ class Buttons {
 
   static coustoumTextButton({required VoidCallback onPressedCallback}) {
     return TextButton(
-        onPressed: () {
-          Get.back();
-        },
+        onPressed: onPressedCallback,
         child: Text(
           "Clear",
           style: TextStyles.openSans(

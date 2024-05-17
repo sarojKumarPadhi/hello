@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 
 import '../../views/loginPages/login_otp.dart';
 import '../../views/loginPages/login_phone.dart';
+import '../../views/postRequements/postRequements.dart';
 
 class AppPages {
   static final List<GetPage> pages = [
@@ -19,6 +20,7 @@ class AppPages {
     GetPage(name: RouteName.logInphoneScreen, page: () => const LogInPhone()),
     GetPage(name: RouteName.logInotpScreen, page: () => const LogINOTP()),
     GetPage(name: RouteName.homeBuyerScreen, page: () => const HomeBuyer()),
-    GetPage(name: RouteName.ChangeLocation, page: () => ChangeLocation())
+    GetPage(name: RouteName.changeLocation, page: () => ChangeLocation()),
+    GetPage(name: RouteName.postRequirements, page: () => PostRequirements())
   ];
 }

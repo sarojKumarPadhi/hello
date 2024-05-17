@@ -26,7 +26,7 @@ Material locationSerchBar({required bool isShortPage, required double width}) {
             child: TextField(
               controller: dialogBoxController.locacationController,
               onChanged: (val) {
-                isShortPage ? Get.toNamed(RouteName.ChangeLocation) : () {};
+                isShortPage ? Get.toNamed(RouteName.changeLocation) : () {};
               },
               decoration: InputDecoration(
                 border: InputBorder.none,

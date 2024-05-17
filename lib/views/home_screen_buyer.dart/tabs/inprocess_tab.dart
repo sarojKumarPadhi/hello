@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../utils/components/buyerScreenTiles/inprocess_tile.dart';
-import '../../../utils/size/global_size/global_size.dart';
 
 class InProcessTab extends StatelessWidget {
   const InProcessTab({super.key});

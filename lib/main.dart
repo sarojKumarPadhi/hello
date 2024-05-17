@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:dekhlo/utils/routes/routes_controller.dart';
 
 import 'views/home_screen_buyer.dart/home_screenBuyer.dart';
+import 'views/postRequements/postRequements.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,8 +41,8 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        // home: const Login(),
-        home: const HomeBuyer(),
+        // home: const Login(),ß
+        home: PostRequirements(),
         getPages: AppPages.pages,
       ),
     );

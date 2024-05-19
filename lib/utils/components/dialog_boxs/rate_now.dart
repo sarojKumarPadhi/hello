@@ -77,8 +77,11 @@ class RateNowCustomDialog extends StatelessWidget {
                   SizedBox(height: GlobalSizes.getDeviceHeight(context) * 0.01),
                   Container(
                     width: GlobalSizes.getDeviceWidth(context) * 0.7,
-                    padding:  EdgeInsets.fromLTRB(
-                        GlobalSizes.getDeviceWidth(context) * 0.01, GlobalSizes.getDeviceHeight(context) * 0.01,GlobalSizes.getDeviceWidth(context) * 0.01,GlobalSizes.getDeviceHeight(context) * 0.01),
+                    padding: EdgeInsets.fromLTRB(
+                        GlobalSizes.getDeviceWidth(context) * 0.01,
+                        GlobalSizes.getDeviceHeight(context) * 0.01,
+                        GlobalSizes.getDeviceWidth(context) * 0.01,
+                        GlobalSizes.getDeviceHeight(context) * 0.01),
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: const Color(0xffE4E4E4),
@@ -94,18 +97,19 @@ class RateNowCustomDialog extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             fontSize: 14,
                             color: const Color(0xff828282)),
-                        contentPadding:  EdgeInsets.symmetric(
-                            vertical: GlobalSizes.getDeviceHeight(context) * - 0.008),
+                        contentPadding: EdgeInsets.symmetric(
+                            vertical:
+                                GlobalSizes.getDeviceHeight(context) * -0.008),
                         border: InputBorder.none,
                       ),
                     ),
                   ),
                   SizedBox(
                     height: GlobalSizes.getDeviceHeight(context) * 0.01,
-                
                   ),
                   Padding(
-                    padding:  EdgeInsets.only(left: GlobalSizes.getDeviceWidth(context) * 0.25 ),
+                    padding: EdgeInsets.only(
+                        left: GlobalSizes.getDeviceWidth(context) * 0.25),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -115,8 +119,8 @@ class RateNowCustomDialog extends StatelessWidget {
                           },
                           child: Padding(
                             padding: EdgeInsets.only(
-                                right:
-                                    GlobalSizes.getDeviceWidth(context) * 0.009),
+                                right: GlobalSizes.getDeviceWidth(context) *
+                                    0.009),
                             child: Text(
                               "Cancel",
                               style: TextStyles.openSans(

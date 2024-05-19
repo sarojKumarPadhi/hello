@@ -288,6 +288,9 @@ class InprocessTile extends StatelessWidget {
                                               child: Image.asset(
                                                   "assest/hamburger.png"),
                                             ),
+                                            SizedBox(
+                                              width: 10.w,
+                                            ),
                                             Text(
                                               "Sort by Distance/Price",
                                               style: TextStyles.openSans(
@@ -687,6 +690,9 @@ class InprocessTile extends StatelessWidget {
                                                                 .only(right: 0),
                                                         child: Image.asset(
                                                             "assest/hamburger.png"),
+                                                      ),
+                                                      SizedBox(
+                                                        width: 10.w,
                                                       ),
                                                       Text(
                                                         "Sort by Distance/Price",

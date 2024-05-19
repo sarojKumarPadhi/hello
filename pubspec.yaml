@@ -52,6 +52,7 @@ dependencies:
   logger: ^2.3.0
   dropdown_button2: ^2.3.9
   image_picker: ^1.1.1
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:

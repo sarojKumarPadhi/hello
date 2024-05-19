@@ -14,7 +14,7 @@ class NewSquareCard extends StatelessWidget {
         "Hi, I want a keyboard which is wireless. Looking for Need 5 of them. Please get back as soon as possible if it available in your store";
     return Container(
         width: double.infinity, // Adjust the width as needed
-        height: 200.h, // Adjust the height as needed
+        height: 240.h, // Adjust the height as needed
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(
@@ -35,8 +35,7 @@ class NewSquareCard extends StatelessWidget {
               height: 10,
             ),
             Padding(
-              padding: EdgeInsets.only(
-                  left: 17.w),
+              padding: EdgeInsets.only(left: 17.w),
               child: Text(
                 "Requirement ID #16526545",
                 style: TextStyles.openSans(

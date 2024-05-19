@@ -1,8 +1,11 @@
+import 'package:dekhlo/utils/routes/routes_names.dart';
 import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:dekhlo/views/home_screen_buyer.dart/tabs/new_tab.dart';
 import 'package:dekhlo/views/home_screen_buyer.dart/tabs/rejected_tab.dart';
+import 'package:dekhlo/views/postRequements/postRequements.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import '../../utils/components/coustoum_serch_bar.dart';
 import '../../utils/components/textstyle.dart';
@@ -140,9 +143,14 @@ class HomeBuyer extends StatelessWidget {
                         fit: BoxFit.fitWidth,
                       ),
                     ),
-                    SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        child: Image.asset("assest/post.png"))
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(RouteName.postRequirements);
+                      },
+                      child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          child: Image.asset("assest/post.png")),
+                    )
                   ],
                 ),
               )

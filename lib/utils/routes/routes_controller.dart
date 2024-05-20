@@ -1,4 +1,6 @@
 import 'package:dekhlo/utils/routes/routes_names.dart';
+import 'package:dekhlo/views/faq_screens/faqScreen.dart';
+import 'package:dekhlo/views/faq_screens/terms&Condition.dart';
 import 'package:dekhlo/views/home_screen_buyer.dart/home_screenBuyer.dart';
 import 'package:dekhlo/views/lang.dart';
 import 'package:dekhlo/views/locationPages/change_location.dart';
@@ -26,6 +28,10 @@ class AppPages {
     GetPage(
         name: RouteName.postRequirements, page: () => const PostRequirements()),
     GetPage(name: RouteName.buyerProfile, page: () => const BuyerProfile()),
-    GetPage(name: RouteName.editProfile, page: () => const EditProfile())
+    GetPage(name: RouteName.editProfile, page: () => const EditProfile()),
+    GetPage(
+        name: RouteName.faqScreens, page: () => const ExpansionTileExample()),
+    GetPage(
+        name: RouteName.termsCondition, page: () => const TermsAndCondition()),
   ];
 }

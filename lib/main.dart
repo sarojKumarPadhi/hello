@@ -1,3 +1,5 @@
+import 'package:dekhlo/views/faq_screens/faqScreen.dart';
+import 'package:dekhlo/views/faq_screens/terms&Condition.dart';
 import 'package:dekhlo/views/profileScreen/buyerProfile.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         // home: const Login(),ß
-        home: const BuyerProfile(),
+        home: const TermsAndCondition(),
         getPages: AppPages.pages,
       ),
     );

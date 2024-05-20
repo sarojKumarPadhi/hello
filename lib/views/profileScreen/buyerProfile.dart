@@ -109,6 +109,9 @@ class BuyerProfile extends StatelessWidget {
                             fontSize: 14.sp,
                             color: const Color(0xff828282)),
                       ),
+                      SizedBox(
+                        height: 8.h,
+                      ),
                       Buttons.smallCallButton(
                           height: 31.h,
                           width: 100.w,

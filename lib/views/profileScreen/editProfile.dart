@@ -3,6 +3,7 @@ import 'package:dekhlo/utils/components/heading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import '../../utils/components/coustoumTextField.dart';
 import '../../utils/components/textstyle.dart';
@@ -35,7 +36,9 @@ class EditProfile extends StatelessWidget {
           )
         ],
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.back();
+            },
             icon: const Icon(
               Icons.arrow_back,
               color: Color(0xff4A4A4A),

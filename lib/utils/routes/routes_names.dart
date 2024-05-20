@@ -11,4 +11,6 @@ class RouteName {
   static const String postRequirements = '/postRequirements';
   static const String buyerProfile = '/BuyerProfile';
   static const String editProfile = '/EditProfile';
+  static const String faqScreens = '/FAQScreen';
+  static const String termsCondition = '/TermsAndCondition';
 }

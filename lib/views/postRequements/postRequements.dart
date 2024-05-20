@@ -32,7 +32,9 @@ class _PostRequirementsState extends State<PostRequirements> {
       appBar: AppBar(
         centerTitle: true,
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.back();
+            },
             icon: const Icon(
               Icons.arrow_back,
               color: Color(0xff4A4A4A),

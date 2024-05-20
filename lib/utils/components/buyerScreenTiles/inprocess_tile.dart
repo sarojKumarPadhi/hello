@@ -511,7 +511,11 @@ class InprocessTile extends StatelessWidget {
                                                                 .index
                                                                 .contains(index)
                                                             ? Buttons
-                                                                .smallCallButton()
+                                                                .smallCallButton(
+                                                                    buttonText:
+                                                                        'Call',
+                                                                    onPressed:
+                                                                        () {})
                                                             : InkWell(
                                                                 onTap: () {
                                                                   if (inProcessController

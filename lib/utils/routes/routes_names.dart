@@ -9,4 +9,6 @@ class RouteName {
   static const String homeBuyerScreen = '/homeBuyerScreen';
   static const String changeLocation = '/changeLocation';
   static const String postRequirements = '/postRequirements';
+  static const String buyerProfile = '/BuyerProfile';
+  static const String editProfile = '/EditProfile';
 }

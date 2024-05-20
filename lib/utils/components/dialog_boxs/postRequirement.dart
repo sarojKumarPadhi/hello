@@ -36,7 +36,7 @@ class PostRequirementsDialog extends StatelessWidget {
             context: context,
             onPressedCallback: () {
               Fluttertoast.showToast(
-                  msg: 'Your requirement is deleted successfully');
+                  msg: 'Your requirement is posted successfully');
               Get.back();
             },
             buttonText: "Send",

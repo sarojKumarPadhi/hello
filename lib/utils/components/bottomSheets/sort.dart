@@ -33,7 +33,7 @@ sortDialogBox({required context}) {
             TabBar(
               indicatorColor: Colors.white,
               onTap: (index) {
-                dialogBoxController.selectedTab(index);
+                dialogBoxController.setSelectedValue(index);
               },
               tabs: [
                 Obx(
@@ -94,41 +94,41 @@ Widget _buildSortByPriceTab(
         const Divider(
           color: Colors.grey,
         ),
-        ListTile(
-          title: Text(
-            'Low to High',
-            style: TextStyles.openSans(
-                color: const Color(0xff4A4A4A),
-                fontWeight: FontWeight.w400,
-                fontSize: 16),
-          ),
-          leading: Radio(
-            fillColor: MaterialStateProperty.all(Color(0xffFC8019)),
-            value: 1,
-            groupValue: dialogBoxController.selectedValue.value,
-            onChanged: (value) {
-              dialogBoxController.setSelectedValue(value!);
-            },
-          ),
-        ),
-        ListTile(
-          title: Text(
-            'High to Low',
-            style: TextStyles.openSans(
-                color: const Color(0xff4A4A4A),
-                fontWeight: FontWeight.w400,
-                fontSize: 16),
-          ),
-          leading: Radio(
-            fillColor: MaterialStateProperty.all(Color(0xffFC8019)),
-            value: 2,
-            groupValue: dialogBoxController.selectedValue.value,
-            onChanged: (value) {
-              dialogBoxController.setSelectedValue(value!);
-            },
-          ),
-        ),
-        Spacer(),
+        Obx(() => ListTile(
+              title: Text(
+                'Low to High',
+                style: TextStyles.openSans(
+                    color: const Color(0xff4A4A4A),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 16),
+              ),
+              leading: Radio(
+                fillColor: MaterialStateProperty.all(const Color(0xffFC8019)),
+                value: 1,
+                groupValue: dialogBoxController.selectedValue.value,
+                onChanged: (value) {
+                  dialogBoxController.setSelectedValue(value!);
+                },
+              ),
+            )),
+        Obx(() => ListTile(
+              title: Text(
+                'High to Low',
+                style: TextStyles.openSans(
+                    color: const Color(0xff4A4A4A),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 16),
+              ),
+              leading: Radio(
+                fillColor: MaterialStateProperty.all(const Color(0xffFC8019)),
+                value: 2,
+                groupValue: dialogBoxController.selectedValue.value,
+                onChanged: (value) {
+                  dialogBoxController.setSelectedValue(value!);
+                },
+              ),
+            )),
+        const Spacer(),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -185,7 +185,7 @@ Widget _buildSortByDistanceTab(context) {
           ),
         ),
       ),
-      Spacer(),
+      const Spacer(),
       Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [

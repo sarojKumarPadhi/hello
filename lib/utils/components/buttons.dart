@@ -112,31 +112,45 @@ class Buttons {
     );
   }
 
-  static Padding smallCallButton() {
+  static Padding smallCallButton({
+    required String buttonText,
+    required VoidCallback onPressed,
+    double height = 28.0,
+    double width = 38.0,
+    double borderRadius = 4.0,
+    Color borderColor = const Color(0xffFC8019),
+    Color foregroundColor = const Color(0xffFC8019),
+    TextStyle? textStyle,
+    EdgeInsetsGeometry padding = const EdgeInsets.only(right: 2.0),
+  }) {
     return Padding(
-        padding: EdgeInsets.only(right: 2.w),
-        child: SizedBox(
-          height: 28.h,
-          width: 38.w,
-          child: TextButton(
-              style: ButtonStyle(
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                          4.0.r), // Adjust radius as needed
-                    ),
-                  ),
-                  side: MaterialStateProperty.all(
-                      const BorderSide(color: Color(0xffFC8019))),
-                  foregroundColor:
-                      const MaterialStatePropertyAll(Color(0xffFC8019))),
-              onPressed: () {},
-              child: Text(
-                "call",
-                style: TextStyles.openSans(
-                    fontWeight: FontWeight.w600, fontSize: 11.5.sp),
-              )),
-        ));
+      padding: padding,
+      child: SizedBox(
+        height: height.h,
+        width: width.w,
+        child: TextButton(
+          style: ButtonStyle(
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(borderRadius.r),
+              ),
+            ),
+            side: MaterialStateProperty.all(BorderSide(color: borderColor)),
+            foregroundColor: MaterialStateProperty.all(foregroundColor),
+          ),
+          onPressed: onPressed,
+          child: Text(
+            buttonText,
+            style: textStyle ??
+                TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 11.5.sp,
+                  color: foregroundColor,
+                ),
+          ),
+        ),
+      ),
+    );
   }
 
   static SizedBox smallDealDoneButton() {

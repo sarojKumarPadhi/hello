@@ -40,6 +40,9 @@ class BuyerProfile extends StatelessWidget {
                 ),
               ),
               PopupMenuItem<int>(
+                onTap: () {
+                  Get.toNamed(RouteName.deleteScreen);
+                },
                 value: 1,
                 child: Row(
                   children: [
@@ -113,11 +116,11 @@ class BuyerProfile extends StatelessWidget {
                         height: 8.h,
                       ),
                       Buttons.smallCallButton(
-                          height: 31.h,
-                          width: 100.w,
+                          height: 35.h,
+                          width: 120.w,
                           buttonText: 'Edit profile',
                           textStyle: TextStyles.openSans(
-                              fontWeight: FontWeight.w600, fontSize: 17.sp),
+                              fontWeight: FontWeight.w600, fontSize: 16.sp),
                           borderColor: const Color(0xffDADADA),
                           foregroundColor: const Color(0xff4a4a4a),
                           onPressed: () {
@@ -140,13 +143,24 @@ class BuyerProfile extends StatelessWidget {
             SizedBox(
               height: 10.h,
             ),
-            textSupport(
-                imagePath: "assest/question_mark.svg", title: "Buyer FAQs"),
+            InkWell(
+              onTap: () {
+                Get.toNamed(RouteName.faqScreens);
+              },
+              child: textSupport(
+                  imagePath: "assest/question_mark.svg", title: "Buyer FAQs"),
+            ),
             SizedBox(
               height: 10.h,
             ),
-            textSupport(
-                imagePath: "assest/doc.svg", title: "Buyer Terms & Conditions"),
+            InkWell(
+              onTap: () {
+                Get.toNamed(RouteName.termsCondition);
+              },
+              child: textSupport(
+                  imagePath: "assest/doc.svg",
+                  title: "Buyer Terms & Conditions"),
+            ),
           ],
         ),
       ),

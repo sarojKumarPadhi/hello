@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../utils/components/deleteReasonController.dart';
+import '../../utils/components/dialog_boxs/delete_dialog.dart';
 import '../../utils/components/textstyle.dart';
+import '../../utils/size/global_size/global_size.dart';
 
 class DeleteScreen extends StatelessWidget {
   const DeleteScreen({super.key});
@@ -42,8 +42,24 @@ class DeleteScreen extends StatelessWidget {
         Get.put(DeleteReasonController());
     return Scaffold(
       appBar: AppBar(
-          // App bar configuration...
-          ),
+        centerTitle: true,
+        elevation: 1,
+        title: Text(
+          "Delete Account",
+          style: TextStyles.openSans(
+              fontSize: 18.sp,
+              fontWeight: FontWeight.w600,
+              color: const Color(0xff4A4A4A)),
+        ),
+        leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Color(0xff4A4A4A),
+            )),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -62,7 +78,7 @@ class DeleteScreen extends StatelessWidget {
             Material(
               // Material widget configuration...
               child: SizedBox(
-                height: 240.h,
+                height: 260.h,
                 width: 328.w,
                 child: Padding(
                   padding:
@@ -125,16 +141,78 @@ class DeleteScreen extends StatelessWidget {
             Material(
                 elevation: 1,
                 child: SizedBox(
-                  height: 133.h,
+                  height: 140.h,
                   width: 328.w,
                   child: Column(
                     children: [
                       guiedlines(title: 'Log out on the all devices'),
-                      guiedlines(title: 'Log out on the all devices'),
-                      guiedlines(title: 'Log out on the all devices'),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      guiedlines(
+                          title:
+                              'All your products, categories will be permanently deleted'),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      guiedlines(
+                          title: 'Delete all of your account information'),
+                      SizedBox(
+                        height: 10.h,
+                      ),
                     ],
                   ),
-                ))
+                )),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.009,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  vertical: GlobalSizes.getDeviceHeight(context) * 0.01),
+              child: SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return DeleteItemDialog(
+                          title:
+                              'Are you sure you want to Delete your account permanently?',
+                          onDelete: () async {
+                            Future.delayed(Duration.zero, () {
+                              Get.back();
+                            });
+                            Future.delayed(Duration.zero, () {
+                              showSuccessDialog(context);
+                            });
+                          },
+                        );
+                      },
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    side: const BorderSide(
+                      color: Color(0xffFC8019),
+                      width: 0,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    backgroundColor: const Color(0xffFC8019),
+                    padding: EdgeInsets.all(
+                        GlobalSizes.getDeviceWidth(context) * 0.04),
+                  ),
+                  child: const Text(
+                    "Delete account",
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white, // Text color
+                    ),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
@@ -148,14 +226,28 @@ class DeleteScreen extends StatelessWidget {
         SizedBox(
           width: 10.w,
         ),
-        Text(
-          title,
-          style: TextStyles.openSans(
-              fontWeight: FontWeight.w600,
-              fontSize: 14.sp,
-              color: const Color(0xff4A4A4A)),
+        Flexible(
+          child: Text(
+            title,
+            style: TextStyles.openSans(
+                fontWeight: FontWeight.w600,
+                fontSize: 14.sp,
+                color: const Color(0xff4A4A4A)),
+          ),
         )
       ],
     );
   }
+}
+
+void showSuccessDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return const AlertDialog(
+        content: Text(
+            "We have deleted your account successfully. We incorporate your feedback to serve you better in near future. Take care."),
+      );
+    },
+  );
 }

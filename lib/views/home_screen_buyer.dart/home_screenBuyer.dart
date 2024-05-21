@@ -48,11 +48,16 @@ class HomeBuyer extends StatelessWidget {
                     SizedBox(
                       width: GlobalSizes.getDeviceHeight(context) * 0.015,
                     ),
-                    SizedBox(
-                      height: GlobalSizes.getDeviceHeight(context) * 0.03,
-                      child: Image.asset(
-                        "assest/user.png",
-                        fit: BoxFit.fitHeight,
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(RouteName.buyerProfile);
+                      },
+                      child: SizedBox(
+                        height: GlobalSizes.getDeviceHeight(context) * 0.03,
+                        child: Image.asset(
+                          "assest/user.png",
+                          fit: BoxFit.fitHeight,
+                        ),
                       ),
                     ),
                     SizedBox(

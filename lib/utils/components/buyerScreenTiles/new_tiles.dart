@@ -1,6 +1,8 @@
 import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 
 import '../dialog_boxs/delete_dialog.dart';
 import '../textstyle.dart';
@@ -233,7 +235,16 @@ class NewSquareCard extends StatelessWidget {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
-                              return const DeleteItemDialog();
+                              return DeleteItemDialog(
+                                title:
+                                    'Do you really want to delete this Requirement ?',
+                                onDelete: () {
+                                  Fluttertoast.showToast(
+                                      msg:
+                                          'Your requirement is deleted successfully');
+                                  Get.back();
+                                },
+                              );
                             },
                           );
                         },

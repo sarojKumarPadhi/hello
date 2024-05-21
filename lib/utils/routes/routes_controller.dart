@@ -10,6 +10,7 @@ import 'package:dekhlo/views/singUpPages/Signup_otp.dart';
 import 'package:dekhlo/views/singUpPages/Singup_phone.dart';
 import 'package:get/get.dart';
 
+import '../../views/faq_screens/deleteScreen.dart';
 import '../../views/loginPages/login_otp.dart';
 import '../../views/loginPages/login_phone.dart';
 import '../../views/postRequements/postRequements.dart';
@@ -33,5 +34,6 @@ class AppPages {
         name: RouteName.faqScreens, page: () => const ExpansionTileExample()),
     GetPage(
         name: RouteName.termsCondition, page: () => const TermsAndCondition()),
+    GetPage(name: RouteName.deleteScreen, page: () => const DeleteScreen()),
   ];
 }

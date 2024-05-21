@@ -13,4 +13,5 @@ class RouteName {
   static const String editProfile = '/EditProfile';
   static const String faqScreens = '/FAQScreen';
   static const String termsCondition = '/TermsAndCondition';
+  static const String deleteScreen = '/DeleteScreen';
 }

@@ -230,6 +230,40 @@ class InprocessTile extends StatelessWidget {
                                   children: [
                                     Row(
                                       children: [
+                                        InkWell(
+                                          onTap: () {
+                                            dialogBoxController
+                                                .selectedTab.value = 0;
+                                            sortDialogBox(context: context);
+                                          },
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsets.only(right: 25.w),
+                                            child: Row(
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          right: 5),
+                                                  child: Image.asset(
+                                                      "assest/hamburger.png"),
+                                                ),
+                                                SizedBox(
+                                                  width: 5.w,
+                                                ),
+                                                Text(
+                                                  "Sort by Distance/Price",
+                                                  style: TextStyles.openSans(
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp,
+                                                      color: const Color(
+                                                          0xffFC8019)),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        ),
                                         Padding(
                                           padding: EdgeInsets.only(left: 11.w),
                                           child: Text(
@@ -271,37 +305,6 @@ class InprocessTile extends StatelessWidget {
                                               )
                                             : const SizedBox(),
                                       ],
-                                    ),
-                                    InkWell(
-                                      onTap: () {
-                                        dialogBoxController.selectedTab.value =
-                                            0;
-                                        sortDialogBox(context: context);
-                                      },
-                                      child: Padding(
-                                        padding: EdgeInsets.only(right: 10.w),
-                                        child: Row(
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  right: 5),
-                                              child: Image.asset(
-                                                  "assest/hamburger.png"),
-                                            ),
-                                            SizedBox(
-                                              width: 10.w,
-                                            ),
-                                            Text(
-                                              "Sort by Distance/Price",
-                                              style: TextStyles.openSans(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: 12.sp,
-                                                  color:
-                                                      const Color(0xffFC8019)),
-                                            )
-                                          ],
-                                        ),
-                                      ),
                                     ),
                                   ],
                                 ),
@@ -600,16 +603,6 @@ class InprocessTile extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 11.w),
-                                    child: Text(
-                                      "Requests (03)",
-                                      style: TextStyles.openSans(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 12.sp,
-                                      ),
-                                    ),
-                                  ),
                                   expandController.isExpanded.value
                                       ? Row(
                                           children: [
@@ -656,6 +649,55 @@ class InprocessTile extends StatelessWidget {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
+                                              InkWell(
+                                                onTap: () {
+                                                  dialogBoxController
+                                                      .selectedTab.value = 0;
+                                                  sortDialogBox(
+                                                      context: context);
+                                                },
+                                                child: Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 10.w),
+                                                  child: Row(
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(right: 0),
+                                                        child: Image.asset(
+                                                            "assest/hamburger.png"),
+                                                      ),
+                                                      SizedBox(
+                                                        width: 5.w,
+                                                      ),
+                                                      Text(
+                                                        "Sort by Distance/Price",
+                                                        style: TextStyles.openSans(
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            fontSize: 12.sp,
+                                                            color: const Color(
+                                                                0xffFC8019)),
+                                                      ),
+                                                      SizedBox(
+                                                        width: 30.w,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 11.w),
+                                                child: Text(
+                                                  "Requests (03)",
+                                                  style: TextStyles.openSans(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 12.sp,
+                                                  ),
+                                                ),
+                                              ),
                                               Padding(
                                                 padding:
                                                     EdgeInsets.only(right: 6.w),
@@ -676,44 +718,9 @@ class InprocessTile extends StatelessWidget {
                                                       )),
                                                 ),
                                               ),
-                                              InkWell(
-                                                onTap: () {
-                                                  dialogBoxController
-                                                      .selectedTab.value = 0;
-                                                  sortDialogBox(
-                                                      context: context);
-                                                },
-                                                child: Padding(
-                                                  padding: EdgeInsets.only(
-                                                      left: 26.w),
-                                                  child: Row(
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(right: 0),
-                                                        child: Image.asset(
-                                                            "assest/hamburger.png"),
-                                                      ),
-                                                      SizedBox(
-                                                        width: 10.w,
-                                                      ),
-                                                      Text(
-                                                        "Sort by Distance/Price",
-                                                        style: TextStyles.openSans(
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontSize: 12.sp,
-                                                            color: const Color(
-                                                                0xffFC8019)),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
                                             ],
                                           ),
-                                        )
+                                        ),
                                 ],
                               ),
                             ],

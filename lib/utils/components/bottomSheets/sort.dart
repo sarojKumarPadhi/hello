@@ -168,7 +168,7 @@ Widget _buildSortByDistanceTab(context) {
       SizedBox(
         height: 5.h,
       ),
-      locationSerchBar(isShortPage: true, width: 310.h),
+      locationSerchBar(isShortPage: true, width: 310.h, context: context),
       SizedBox(
         height: 5.h,
       ),

@@ -1,3 +1,4 @@
+import 'package:dekhlo/utils/components/dialog_boxs/otp_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -184,7 +185,14 @@ class DeleteScreen extends StatelessWidget {
                               Get.back();
                             });
                             Future.delayed(Duration.zero, () {
-                              showSuccessDialog(context);
+                              // showSuccessDialog(context);
+                              showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return const OtpDialog(
+                                      nametoNavigate: '',
+                                    );
+                                  });
                             });
                           },
                         );
@@ -238,16 +246,4 @@ class DeleteScreen extends StatelessWidget {
       ],
     );
   }
-}
-
-void showSuccessDialog(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return const AlertDialog(
-        content: Text(
-            "We have deleted your account successfully. We incorporate your feedback to serve you better in near future. Take care."),
-      );
-    },
-  );
 }

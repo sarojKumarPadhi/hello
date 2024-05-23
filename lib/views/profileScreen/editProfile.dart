@@ -1,11 +1,11 @@
 import 'package:dekhlo/utils/components/buttons.dart';
 import 'package:dekhlo/utils/components/heading.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../utils/components/coustoumTextField.dart';
+import '../../utils/components/dialog_boxs/otp_dialog.dart';
 import '../../utils/components/textstyle.dart';
 
 class EditProfile extends StatelessWidget {
@@ -116,7 +116,16 @@ class EditProfile extends StatelessWidget {
             child: Buttons.longButton(
                 color: const Color(0xffFC8019),
                 context: context,
-                onPressedCallback: () {},
+                onPressedCallback: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return const OtpDialog(
+                        nametoNavigate: 'success',
+                      );
+                    },
+                  );
+                },
                 buttonText: 'Update',
                 textColor: Colors.white),
           )

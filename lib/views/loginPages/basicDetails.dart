@@ -1,12 +1,12 @@
-import 'package:dekhlo/utils/components/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
+import '../../controllers/basicController.dart';
 import '../../controllers/dropDownController.dart';
-import '../../utils/components/coustoumTextField.dart';
+import '../../utils/components/buttons.dart';
 import '../../utils/components/textstyle.dart';
 import '../../utils/coustoumDropDown.dart';
+// Import the form controller
 
 class BasicDetails extends StatelessWidget {
   const BasicDetails({super.key});
@@ -14,6 +14,8 @@ class BasicDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DropdownController dropdownController = Get.put(DropdownController());
+    BasicDetailsController basicDetailsController =
+        Get.put(BasicDetailsController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -34,11 +36,19 @@ class BasicDetails extends StatelessWidget {
             SizedBox(
               height: 20.h,
             ),
-            coustoumTextField(text: 'Full Name'),
+            coustoumTextField(
+              text: 'Full Name',
+              controller: basicDetailsController.fullNameController,
+              onChanged: (value) => basicDetailsController.updateButtonState(),
+            ),
             SizedBox(
               height: 30.h,
             ),
-            coustoumTextField(text: 'Email address(optional)'),
+            coustoumTextField(
+              text: 'Email address(optional)',
+              controller: basicDetailsController.emailAddressController,
+              onChanged: (value) => basicDetailsController.updateButtonState(),
+            ),
             SizedBox(
               height: 20.h,
             ),
@@ -66,6 +76,8 @@ class BasicDetails extends StatelessWidget {
                     child: SizedBox(
                       height: 55.h,
                       child: TextField(
+                        controller: basicDetailsController.ageController,
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           labelText: "Age",
@@ -78,12 +90,14 @@ class BasicDetails extends StatelessWidget {
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30.0),
+                            borderRadius: BorderRadius.circular(4.0.r),
                             borderSide: const BorderSide(
                               color: Color(0xFFC4C4C4), // Border color
                             ),
                           ),
                         ),
+                        onChanged: (value) =>
+                            basicDetailsController.updateButtonState(),
                       ),
                     ),
                   ),
@@ -93,13 +107,17 @@ class BasicDetails extends StatelessWidget {
             SizedBox(
               height: 30.h,
             ),
-            Buttons.longButton(
-              color: const Color(0xffFC8019).withOpacity(0.2),
-              context: context,
-              onPressedCallback: () {},
-              buttonText: 'Next',
-              textColor: Colors.white,
-            ),
+            Obx(() => Buttons.longButton(
+                  color: const Color(0xffFC8019).withOpacity(
+                      basicDetailsController.isButtonEnabled.value ? 0.9 : 0.2),
+                  context: context,
+                  onPressedCallback:
+                      basicDetailsController.isButtonEnabled.value
+                          ? () {}
+                          : () {},
+                  buttonText: 'Next',
+                  textColor: Colors.white,
+                )),
             SizedBox(height: 20.h),
           ],
         ),
@@ -107,10 +125,15 @@ class BasicDetails extends StatelessWidget {
     );
   }
 
-  Padding coustoumTextField({required String text}) {
+  Padding coustoumTextField(
+      {required String text,
+      required TextEditingController controller,
+      ValueChanged<String>? onChanged}) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: TextField(
+        controller: controller,
+        onChanged: onChanged,
         decoration: InputDecoration(
           floatingLabelBehavior: FloatingLabelBehavior.always,
           labelText: text,
@@ -125,7 +148,7 @@ class BasicDetails extends StatelessWidget {
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.circular(4.0.r),
             borderSide: const BorderSide(
               color: Color(0xFFC4C4C4), // Border color
             ),

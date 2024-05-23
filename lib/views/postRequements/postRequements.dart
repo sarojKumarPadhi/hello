@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../controllers/dropDownController.dart';
 import '../../utils/components/coustoumTextField.dart';
@@ -18,13 +20,13 @@ class PostRequirements extends StatefulWidget {
 }
 
 class _PostRequirementsState extends State<PostRequirements> {
-  DropdownController dropdownController = Get.put(DropdownController());
-  TextEditingController brandController = TextEditingController();
-  TextEditingController modelController = TextEditingController();
-  TextEditingController sizeController = TextEditingController();
-  TextEditingController quntityController = TextEditingController();
-  TextEditingController commentsController = TextEditingController();
-  List<String> imagePaths = [];
+  final DropdownController dropdownController = Get.put(DropdownController());
+  final TextEditingController brandController = TextEditingController();
+  final TextEditingController modelController = TextEditingController();
+  final TextEditingController sizeController = TextEditingController();
+  final TextEditingController quntityController = TextEditingController();
+  final TextEditingController commentsController = TextEditingController();
+  final RxString imagePath = ''.obs;
 
   @override
   Widget build(BuildContext context) {
@@ -32,19 +34,21 @@ class _PostRequirementsState extends State<PostRequirements> {
       appBar: AppBar(
         centerTitle: true,
         leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              color: Color(0xff4A4A4A),
-            )),
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Color(0xff4A4A4A),
+          ),
+        ),
         title: Text(
           "Posting requirement",
           style: TextStyles.openSans(
-              fontWeight: FontWeight.w600,
-              fontSize: 17.sp,
-              color: const Color(0xff4A4A4A)),
+            fontWeight: FontWeight.w600,
+            fontSize: 17.sp,
+            color: const Color(0xff4A4A4A),
+          ),
         ),
       ),
       body: Padding(
@@ -102,16 +106,22 @@ class _PostRequirementsState extends State<PostRequirements> {
                 alignment: Alignment.centerLeft,
                 child: Row(
                   children: [
-                    Text("Brand",
-                        style: TextStyles.openSans(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w600,
-                            color: const Color(0xff4A4A4A))),
-                    Text("(optional)",
-                        style: TextStyles.openSans(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w600,
-                            color: const Color(0xffA9A7A7))),
+                    Text(
+                      "Brand",
+                      style: TextStyles.openSans(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        color: const Color(0xff4A4A4A),
+                      ),
+                    ),
+                    Text(
+                      "(optional)",
+                      style: TextStyles.openSans(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        color: const Color(0xffA9A7A7),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -131,16 +141,22 @@ class _PostRequirementsState extends State<PostRequirements> {
                 alignment: Alignment.centerLeft,
                 child: Row(
                   children: [
-                    Text("Model no",
-                        style: TextStyles.openSans(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w600,
-                            color: const Color(0xff4A4A4A))),
-                    Text("(optional)",
-                        style: TextStyles.openSans(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w600,
-                            color: const Color(0xffA9A7A7))),
+                    Text(
+                      "Model no",
+                      style: TextStyles.openSans(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        color: const Color(0xff4A4A4A),
+                      ),
+                    ),
+                    Text(
+                      "(optional)",
+                      style: TextStyles.openSans(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        color: const Color(0xffA9A7A7),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -227,82 +243,82 @@ class _PostRequirementsState extends State<PostRequirements> {
                 alignment: Alignment.centerLeft,
                 child: Row(
                   children: [
-                    Text("Add your image",
-                        style: TextStyles.openSans(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w600,
-                            color: const Color(0xff4A4A4A))),
-                    Text("(optional)",
-                        style: TextStyles.openSans(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w600,
-                            color: const Color(0xffA9A7A7))),
+                    Text(
+                      "Add your image",
+                      style: TextStyles.openSans(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        color: const Color(0xff4A4A4A),
+                      ),
+                    ),
+                    Text(
+                      "(optional)",
+                      style: TextStyles.openSans(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        color: const Color(0xffA9A7A7),
+                      ),
+                    ),
                   ],
                 ),
               ),
               SizedBox(
                 height: 10.h,
               ),
-              SizedBox(
-                height: 100.h,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    for (var path in imagePaths)
-                      Image.file(
-                        File(path),
-                        width: 80.w,
-                        height: 100.h,
-                      ),
-                    GestureDetector(
-                      onTap: () async {
-                        final result = await showDialog<String>(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const PickImageDialog();
-                          },
-                        );
-                        if (result != null) {
-                          setState(() {
-                            imagePaths.add(result);
-                          });
-                        }
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 20.h),
-                        child: Container(
-                          height: 50.h,
-                          width: 170.w,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                                width: 1, color: const Color(0xffFC8019)),
-                            borderRadius: BorderRadius.circular(5.r),
+              Obx(
+                () => imagePath.value != ""
+                    ? Stack(
+                        children: [
+                          Image.file(
+                            File(imagePath.value),
+                            width: 100.w,
+                            height: 100.h,
+                            fit: BoxFit.fill,
                           ),
-                          child: Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                const Icon(
-                                  Icons.add,
-                                  color: Color(0xffFC8019),
-                                ),
-                                // SizedBox(width: 5.w),
-                                Text(
-                                  "Upload new images",
-                                  style: TextStyles.openSans(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 14.sp,
-                                      color: const Color(0xffFC8019)),
-                                ),
-                              ],
+                          Positioned(
+                            top: 5.h,
+                            right: 5.h,
+                            child: InkWell(
+                              onTap: () {
+                                imagePath.value = "";
+                              },
+                              child: Center(
+                                  child: SvgPicture.asset(
+                                "assest/cross.svg",
+                                height: 20,
+                              )),
                             ),
                           ),
+                        ],
+                      )
+                    : GestureDetector(
+                        onTap: () async {
+                          final result = await showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const PickImageDialog();
+                            },
+                          );
+                          if (result != null) {
+                            imagePath.value = result;
+                          }
+                        },
+                        child: Row(
+                          children: [
+                            const Center(
+                              child: Icon(
+                                Icons.add,
+                                color: Color(0xffFC8019),
+                              ),
+                            ),
+                            Text("Add IMAGE",
+                                style: TextStyles.openSans(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: const Color(0xffFC8019)))
+                          ],
                         ),
                       ),
-                    ),
-                  ],
-                ),
               ),
               SizedBox(
                 height: 10.h,
@@ -327,7 +343,6 @@ class _PostRequirementsState extends State<PostRequirements> {
                 height: 40.h,
                 child: ElevatedButton(
                   onPressed: () {
-                    // showDialog(context: context, builder: (context,builder))
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {

@@ -1,10 +1,14 @@
 import 'package:dekhlo/views/loginPages/basicDetails.dart';
+import 'package:dekhlo/views/postRequements/postRequements.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'package:dekhlo/utils/routes/routes_controller.dart';
+
+import 'views/faq_screens/deleteScreen.dart';
+import 'views/profileScreen/editProfile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +43,7 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        home: const BasicDetails(),
+        home: const DeleteScreen(),
         getPages: AppPages.pages,
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:dekhlo/utils/routes/routes_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -113,9 +114,11 @@ class BasicDetails extends StatelessWidget {
                   context: context,
                   onPressedCallback:
                       basicDetailsController.isButtonEnabled.value
-                          ? () {}
+                          ? () {
+                              Get.toNamed(RouteName.homeBuyerScreen);
+                            }
                           : () {},
-                  buttonText: 'Next',
+                  buttonText: 'Sign Up',
                   textColor: Colors.white,
                 )),
             SizedBox(height: 20.h),

@@ -2,13 +2,14 @@ import 'package:dekhlo/utils/routes/routes_names.dart';
 import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:dekhlo/views/home_screen_buyer.dart/tabs/new_tab.dart';
 import 'package:dekhlo/views/home_screen_buyer.dart/tabs/rejected_tab.dart';
-import 'package:dekhlo/views/postRequements/postRequements.dart';
+import 'package:dekhlo/views/notificationsScreens/buyer_notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../utils/components/coustoum_serch_bar.dart';
 import '../../utils/components/textstyle.dart';
+
 import 'tabs/deal_done.dart';
 import 'tabs/inprocess_tab.dart';
 
@@ -39,12 +40,17 @@ class HomeBuyer extends StatelessWidget {
                     SizedBox(
                       width: GlobalSizes.getDeviceHeight(context) * 0.015,
                     ),
-                    SizedBox(
-                        height: GlobalSizes.getDeviceHeight(context) * 0.03,
-                        child: Image.asset(
-                          "assest/bell.png",
-                          fit: BoxFit.fitHeight,
-                        )),
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(RouteName.buyerNotification);
+                      },
+                      child: SizedBox(
+                          height: GlobalSizes.getDeviceHeight(context) * 0.03,
+                          child: Image.asset(
+                            "assest/bell.png",
+                            fit: BoxFit.fitHeight,
+                          )),
+                    ),
                     SizedBox(
                       width: GlobalSizes.getDeviceHeight(context) * 0.015,
                     ),

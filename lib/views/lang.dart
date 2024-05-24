@@ -118,7 +118,8 @@ class Lag extends StatelessWidget {
                   textColor: Colors.white,
                   context: context,
                   onPressedCallback: () {
-                    Get.toNamed(RouteName.homeBuyerScreen);
+                    // Get.toNamed(RouteName.homeBuyerScreen);
+                    Get.toNamed(RouteName.basicDetails);
                     // to be continued
                   },
                 );

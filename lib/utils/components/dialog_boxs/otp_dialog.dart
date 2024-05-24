@@ -40,7 +40,9 @@ class OtpDialog extends StatelessWidget {
               right: 10.0,
               child: GestureDetector(
                 onTap: () {
-                  Get.back();
+                  Future.delayed(Duration.zero, () {
+                    Get.back();
+                  });
                 },
                 child: const Padding(
                   padding: EdgeInsets.all(8.0),

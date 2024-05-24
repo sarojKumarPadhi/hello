@@ -2,11 +2,11 @@ import 'package:dekhlo/utils/routes/routes_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import '../../controllers/basicController.dart';
-import '../../controllers/dropDownController.dart';
-import '../../utils/components/buttons.dart';
-import '../../utils/components/textstyle.dart';
-import '../../utils/coustoumDropDown.dart';
+import '../../../controllers/basicController.dart';
+import '../../../controllers/dropDownController.dart';
+import '../../../utils/components/buttons.dart';
+import '../../../utils/components/textstyle.dart';
+import '../../../utils/coustoumDropDown.dart';
 // Import the form controller
 
 class BasicDetails extends StatelessWidget {

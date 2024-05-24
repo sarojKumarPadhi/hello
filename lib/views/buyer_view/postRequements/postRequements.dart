@@ -4,13 +4,13 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import '../../controllers/dropDownController.dart';
-import '../../utils/components/coustoumTextField.dart';
-import '../../utils/components/dialog_boxs/pick_diallo.dart';
-import '../../utils/components/dialog_boxs/postRequirement.dart';
-import '../../utils/components/heading.dart';
-import '../../utils/components/textstyle.dart';
-import '../../utils/coustoumDropDown.dart';
+import '../../../controllers/dropDownController.dart';
+import '../../../utils/components/coustoumTextField.dart';
+import '../../../utils/components/dialog_boxs/pick_diallo.dart';
+import '../../../utils/components/dialog_boxs/postRequirement.dart';
+import '../../../utils/components/heading.dart';
+import '../../../utils/components/textstyle.dart';
+import '../../../utils/coustoumDropDown.dart';
 
 class PostRequirements extends StatefulWidget {
   const PostRequirements({super.key});

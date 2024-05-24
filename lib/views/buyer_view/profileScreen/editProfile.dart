@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../utils/components/coustoumTextField.dart';
-import '../../utils/components/dialog_boxs/otp_dialog.dart';
-import '../../utils/components/textstyle.dart';
+import '../../../utils/components/coustoumTextField.dart';
+import '../../../utils/components/dialog_boxs/otp_dialog.dart';
+import '../../../utils/components/textstyle.dart';
 
 class EditProfile extends StatelessWidget {
   const EditProfile({super.key});

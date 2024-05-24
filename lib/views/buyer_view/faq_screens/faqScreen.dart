@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../utils/components/textstyle.dart';
+import '../../../utils/components/textstyle.dart';
 
 class ExpansionTileExample extends StatefulWidget {
-  const ExpansionTileExample({Key? key});
+  const ExpansionTileExample({super.key});
 
   @override
   State<ExpansionTileExample> createState() => _ExpansionTileExampleState();

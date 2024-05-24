@@ -1,6 +1,6 @@
 import 'package:dekhlo/utils/components/buttons.dart';
 import 'package:dekhlo/utils/components/dialog_boxs/succsess_dialog.dart';
-import 'package:dekhlo/views/faq_screens/deleteScreen.dart';
+import 'package:dekhlo/views/buyer_view/faq_screens/deleteScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

@@ -7,7 +7,7 @@ import 'package:dekhlo/utils/size/global_size/global_size.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../utils/components/Coustum_RichText.dart';
+import '../../../utils/components/Coustum_RichText.dart';
 
 class LogInPhone extends StatelessWidget {
   const LogInPhone({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../utils/components/textstyle.dart';
+import '../../../utils/components/textstyle.dart';
 
 class TermsAndCondition extends StatelessWidget {
   const TermsAndCondition({super.key});
@@ -42,7 +42,7 @@ class TermsAndCondition extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 25.sp,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xff4A4A4A),
+                      color: const Color(0xff4A4A4A),
                     ),
                     children: [
                       TextSpan(
@@ -50,7 +50,7 @@ class TermsAndCondition extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 24.sp,
                           fontWeight: FontWeight.w400,
-                          color: Color(0xff4A4A4A),
+                          color: const Color(0xff4A4A4A),
                         ),
                       ),
                     ],

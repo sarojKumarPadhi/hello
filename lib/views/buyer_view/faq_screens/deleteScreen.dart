@@ -4,10 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../utils/components/deleteReasonController.dart';
-import '../../utils/components/dialog_boxs/delete_dialog.dart';
-import '../../utils/components/textstyle.dart';
-import '../../utils/size/global_size/global_size.dart';
+import '../../../utils/components/deleteReasonController.dart';
+import '../../../utils/components/dialog_boxs/delete_dialog.dart';
+import '../../../utils/components/textstyle.dart';
+import '../../../utils/size/global_size/global_size.dart';
 
 class DeleteScreen extends StatelessWidget {
   const DeleteScreen({super.key});

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../utils/components/textstyle.dart';
+import '../../../utils/components/textstyle.dart';
 
 class BuyerNotification extends StatelessWidget {
   BuyerNotification({super.key});

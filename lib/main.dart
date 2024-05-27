@@ -1,4 +1,5 @@
 import 'package:dekhlo/views/seller_views/set_up_product.dart';
+import 'package:dekhlo/views/test.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         home: SetUpProduct(),
+        // home: const TestWidget(),
         getPages: AppPages.pages,
       ),
     );

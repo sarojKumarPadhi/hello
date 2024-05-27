@@ -54,6 +54,7 @@ dependencies:
   image_picker: ^1.1.1
   flutter_svg: ^2.0.10+1
   flutter_expanded_tile: ^0.3.7
+  multi_dropdown: ^2.1.4
 
 dev_dependencies:
   flutter_test:
